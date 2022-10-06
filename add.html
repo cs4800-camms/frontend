@@ -13,29 +13,32 @@
 <body>
 <h1> Plan a New Trip</h1>
 
-<form class="row gy-2 gx-3 align-items-center">
-    <div class="col-auto">
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon3">Where to?</span>
-            <input type="text" class="form-control" id="autoSizingInout"  placeholder="e.g Paris, France"aria-describedby="basic-addon3">
+    <form class="row gy-2 gx-3 align-items-center">
+        <div class="col-auto">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Trip name</span>
+                <input type="text" class="form-control form-control-lg" id="autoSizingInout" placeholder="e.g Trip #1" aria-describedby="basic-addon3" />
+            </div>
         </div>
-    </div>
-    <div class="col-auto">
-        <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
-        <div class="input-group">
-            <div class="input-group-text">@</div>
-            <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Start date">
+        <div class="col-auto">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon3">Where to?</span>
+                <input type="text" class="form-control form-control-lg" id="autoSizingInout" placeholder="e.g Paris, France" aria-describedby="basic-addon3" />
+            </div>
         </div>
-    </div>
-    <div class="col-auto">
-        <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
-        <div class="input-group">
-            <div class="input-group-text">@</div>
-            <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="End date">
+        <div class="col-auto">
+            <div class="input-group mb-3" id="datepicker">
+            <input type="date" class="form-control form-control-lg"/>
+            </div>
         </div>
-    </div>
-    <div class="col-auto">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-</form>
+        <div class="col-auto">
+            <div class="input-group mb-3" id="datepicker">
+                <input type="date" class="form-control form-control-lg" value="End date" />
+            </div>
+        </div>
+        <br></br><br></br>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary btn-lg">Start Planning</button>
+        </div>
+    </form>
 </body>

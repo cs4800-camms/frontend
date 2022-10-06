@@ -15,4 +15,8 @@ h1{
     font-weight: bold;
     text-align:center
 }
+form {
+    margin: 10% !important;
+    display:inline-block !important;
+}
 
