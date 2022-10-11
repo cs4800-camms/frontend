@@ -5,10 +5,9 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Form from 'react-bootstrap/Form';
 import { useState } from "react";
 
-
 export default function AddTripForm() {
-    const [date, setDate] = useState(new Date());
-    const [date2, setDate2] = useState(new Date());
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
 
     return (
         <body>
@@ -25,12 +24,12 @@ export default function AddTripForm() {
 
                 <div class="col-auto">
                     <div class="input-group mb-3" id="datepicker">
-                        <input type="date" class="form-control form-control-lg" value={date} onChange={(e) => setDate(e.target.value)} />
+                        <input type="date" class="form-control form-control-lg" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
                     </div>
                 </div>
                 <div class="col-auto">
                     <div class="input-group mb-3" id="datepicker">
-                        <input type="date" class="form-control form-control-lg" value={date2} onChange={(e) => setDate2(e.target.value)} />
+                        <input type="date" class="form-control form-control-lg" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
                     </div>
                 </div>
                 <br></br><br></br><br></br><br></br>

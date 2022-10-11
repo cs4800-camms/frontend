@@ -3,7 +3,6 @@ import TripList from '../components/trips/TripList';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../styles.css'
 
-
 function AllTripsPage() {
     const DUMMY_DATA = [
         {
