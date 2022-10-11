@@ -1,11 +1,19 @@
-body{
-    text-align:center;
-    
+body {
+    text-align: center;
+
 }
-.form{
-    display:inline-block;
-    margin: 10%;
+
+.form {
+    display: inline-block;
+    width: 50%;
 }
-.input{
+
+.input {
     background-color: white;
+    font-weight: bold;
+
+}
+
+.label {
+    font-weight: bold;
 }

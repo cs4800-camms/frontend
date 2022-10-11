@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
 export default function TripItem(props) {
     return (
@@ -6,7 +7,7 @@ export default function TripItem(props) {
     
             <div>
                 <img src={props.image} class="img-fluid" alt={props.title} />
-                <h5>{props.title}</h5>
+                <Link to="/itinerary">{props.title}</Link>
             </div>
     </div>
 
