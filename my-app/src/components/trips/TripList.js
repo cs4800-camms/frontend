@@ -8,10 +8,8 @@ export default function TripList(props) {
             <h2> Your trips </h2>
         </div>
         <div class="row">
-
             {props.trips.map(trip => (
                         <div class="col">
-
                 <TripItem
                     key={trip.id}
                     id={trip.id}
