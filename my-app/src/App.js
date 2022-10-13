@@ -4,6 +4,7 @@ import AllTripsPage from './pages/AllTrips';
 import AddTripPage from './pages/AddTrip';
 import { BrowserRouter } from 'react-router-dom';
 import ItineraryPage from './pages/Itinerary';
+import EditTripPage from './pages/EditTrip';
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                     </Route>
                     <Route path='/itinerary' element={<ItineraryPage />}>
                     </Route>
+                    <Route path='/edit' element={<EditTripPage />}></Route>
                 </Routes>
             </BrowserRouter>
         </div>
