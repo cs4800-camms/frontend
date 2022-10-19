@@ -1,11 +1,11 @@
 .icon {
     position:relative;
 }
-.image {
-    display: block !important
-}
 .icon:hover {
     cursor: pointer;
+}
+.image {
+    width :100%
 }
 .link {
     color: black;
@@ -14,4 +14,13 @@
 .link:hover {
     color: black;
     text-decoration: underline;
+}
+.icon {
+    color: black;
+}
+.align {
+    position: relative;  
+}
+.button {
+    border:none;
 }

@@ -1,11 +1,11 @@
 import AddTripForm from "../components/trips/AddTripForm";
 
- function AddTripPage(){
+function AddTripPage() {
     return (
         <section>
-     <h1> Plan a New Trip</h1>
-     <AddTripForm></AddTripForm>
-     </section>
+            <h1> Plan a New Trip</h1>
+            <AddTripForm></AddTripForm>
+        </section>
     );
 
 }
