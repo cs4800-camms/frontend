@@ -21,9 +21,7 @@ export default function TripList(props) {
                         />
                     </div>
                 ))}
-
             </div>
         </body>
     );
-
 }

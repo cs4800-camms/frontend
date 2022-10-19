@@ -20,7 +20,6 @@ function AllTripsPage() {
             location: "Paris, France",
             startdate: "10/20/2022",
             enddate: "10/25/2022",
-
         },
 
         {
@@ -30,7 +29,6 @@ function AllTripsPage() {
             location: "Rome, Italy",
             startdate: "12/25/2022",
             enddate: "01/10/2023",
-
         },
         {
             id: 't3',
