@@ -22,5 +22,6 @@
     position: relative;  
 }
 .button {
+    display:block;
     border:none;
 }

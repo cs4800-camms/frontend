@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import TripList from '../components/trips/TripList';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../styles.css'
@@ -39,6 +39,7 @@ function AllTripsPage() {
             enddate: "01/28/2023",
         }
     ];
+    const [tripList, setTripList]= useState(DUMMY_DATA);
     return (
         <Fragment>
             <body>
@@ -47,7 +48,7 @@ function AllTripsPage() {
                 </div>
                 <br></br>
                 <br></br>
-                <TripList trips={DUMMY_DATA}></TripList>
+                <TripList trips={tripList}></TripList>
                 <br></br><br></br><br></br>
 
                 <div class="text-center">
