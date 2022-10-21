@@ -3,10 +3,12 @@ import classes from './AddTripForm.module.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Form from 'react-bootstrap/Form';
 import { useState } from "react";
+import axios from 'axios';
 
 export default function AddTripForm() {
 
     const [tripInfo, setTripInfo] = useState({
+        userId: 1,
         tripName: "",
         tripLocation: "",
         startDate: new Date(),
@@ -15,8 +17,13 @@ export default function AddTripForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(tripInfo)
-        //setTripInfo({tripName: "", tripLocation: "", startDate: new Date(), endDate: new Date()})
+        axios.post(`/trips/create`, tripInfo)
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     };
     return (
         <body>
@@ -35,7 +42,6 @@ export default function AddTripForm() {
                     <div class="form-floating mb-3" id="datepicker">
                         <input type="date" class="form-control form-control-lg" onChange={(e) => setTripInfo({ ...tripInfo, startDate: e.target.value })} value={tripInfo.startDate} required />
                         <label htmlFor="startDate" className={classes.label} for="floatingInput">Start Date</label>
-
                     </div>
                 </div>
 
