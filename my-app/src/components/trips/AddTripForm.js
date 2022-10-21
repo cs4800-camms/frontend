@@ -17,8 +17,7 @@ export default function AddTripForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(tripInfo)
-        axios.post(`http://localhost:8080/trips/create`, tripInfo)
+        axios.post(`/trips/create`, tripInfo)
           .then(function (response) {
             console.log(response);
           })
