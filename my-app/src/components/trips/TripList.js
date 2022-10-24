@@ -10,27 +10,29 @@ export default function TripList(props) {
         const newTripList = tripList.filter((trip) => trip.id !== id);
         setTripList(newTripList)
     }
-    
+
     return (
         <body>
             <div class="text-center">
                 <h2> Your trips </h2>
             </div>
-            <div class="row">
-                {tripList.map(trip => (
-                    <div class="col">
-                        <TripItem
-                            key={trip.id}
-                            id={trip.id}
-                            image={trip.image}
-                            title={trip.title}
-                            location={trip.location}
-                            startdate={trip.startdate}
-                            enddate={trip.enddate}
-                            handleRemove={handleRemove}
-                        />
-                    </div>
-                ))}
+            <div class="container">
+                <div class="row">
+                    {tripList.map(trip => (
+                        <div class="col-sm-4">
+                            <TripItem
+                                key={trip.id}
+                                id={trip.id}
+                                image={trip.image}
+                                tripName={trip.tripName}
+                                tripDestination={trip.tripDestination}
+                                startDate={trip.startDate}
+                                endDate={trip.endDate}
+                                handleRemove={handleRemove}
+                            />
+                        </div>
+                    ))}
+                </div>
             </div>
         </body>
     );

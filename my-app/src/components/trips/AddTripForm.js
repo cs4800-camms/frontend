@@ -5,25 +5,27 @@ import Form from 'react-bootstrap/Form';
 import { useState } from "react";
 import axios from 'axios';
 
-export default function AddTripForm() {
+export default function AddTripForm(props) {
 
     const [tripInfo, setTripInfo] = useState({
         userId: 1,
         tripName: "",
-        tripLocation: "",
+        tripDestination: "",
         startDate: new Date(),
         endDate: new Date(),
     });
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        props.onAddTrip(tripInfo);
+
         axios.post(`/trips/create`, tripInfo)
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     };
     return (
         <body>
@@ -34,7 +36,7 @@ export default function AddTripForm() {
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="e.g Paris, France" onChange={(e) => setTripInfo({ ...tripInfo, tripLocation: e.target.value })} value={tripInfo.tripLocation} required />
+                    <input type="text" class="form-control" id="floatingInput" placeholder="e.g Paris, France" onChange={(e) => setTripInfo({ ...tripInfo, tripDestination: e.target.value })} value={tripInfo.tripDestination} required />
                     <label className={classes.label} for="floatingInput">Where to?</label>
                 </div>
 

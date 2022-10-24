@@ -15,31 +15,42 @@ function AllTripsPage() {
     const DUMMY_DATA = [
         {
             id: 't1',
-            title: 'My trip #1',
+            tripName: 'My trip #1',
             image: "/paris.png",
-            location: "Paris, France",
-            startdate: "10/20/2022",
-            enddate: "10/25/2022",
+            tripDestination: "Paris, France",
+            startDate: "2022-10-20",
+            endDate: "2022-10-25",
         },
 
         {
-            id: 't2',
-            title: 'My trip #2',
+            _id: 't2',
+            tripName: 'My trip #2',
             image: "/rome.png",
-            location: "Rome, Italy",
-            startdate: "12/25/2022",
-            enddate: "01/10/2023",
+            tripDestination: "Rome, Italy",
+            startDate: "2022-12-25",
+            endDate: "2023-01-10",
         },
         {
             id: 't3',
-            title: 'My trip #3',
+            tripName: 'My trip #3',
             image: "/paris.png",
-            location: "Paris, France",
-            startdate: "01/20/2023",
-            enddate: "01/28/2023",
+            tripDestination: "Paris, France",
+            startDate: "2023-01-20",
+            endDate: "2023-01-25",
+        },
+        {
+            id: 't4',
+            tripName: 'My trip #4',
+            image: "/rome.png",
+            tripDestination: "Tokyo, Japan",
+            startDate: "2023-02-21",
+            endDate: "2023-03-20",
         }
     ];
-    const [tripList, setTripList]= useState(DUMMY_DATA);
+
+    const [tripList, setTripList] = useState(DUMMY_DATA);
+    //TODO: add the new trip to the list, but how do I do that :(( 
+
     return (
         <Fragment>
             <body>
@@ -50,9 +61,8 @@ function AllTripsPage() {
                 <br></br>
                 <TripList trips={tripList}></TripList>
                 <br></br><br></br><br></br>
-
                 <div class="text-center">
-                    <button onClick={navigateToAdd} type="button" class="btn btn-primary btn-lg" onclick="location.href = 'add.html'">Plan new trip</button>
+                    <button onClick={navigateToAdd} type="button" class="btn btn-primary btn-lg">Plan new trip</button>
                 </div>
             </body>
         </Fragment>
