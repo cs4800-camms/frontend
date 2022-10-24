@@ -13,9 +13,9 @@ export default function TripItem(props) {
   }
   
   return (
-    <div>
-      <img src={props.image} className={`img-fluid ${classes.image}`} alt={props.tripName} />
-      <Link className={classes.link} to="/itinerary">{props.tripName}</Link>
+    <div className={`text-center ${classes.align}`}>
+      <img src={"/paris.png"} className={`img-fluid ${classes.image}`} alt={props.title} />
+      <Link className={classes.link} to="/itinerary">{props.title}</Link>
       <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"></a>
       <div class="btn-group" role="group">
         <i id="btnGroupDrop1" type="icon" className={`btn btn-sm dropdown-toggle ${classes.button}`} data-bs-toggle="dropdown" aria-expanded="false"></i>

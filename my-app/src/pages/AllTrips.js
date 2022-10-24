@@ -1,8 +1,9 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import TripList from '../components/trips/TripList';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../styles.css'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function AllTripsPage() {
 
@@ -47,9 +48,16 @@ function AllTripsPage() {
             endDate: "2023-03-20",
         }
     ];
+    const [tripList, setTripList]= useState([]);
 
-    const [tripList, setTripList] = useState(DUMMY_DATA);
-    //TODO: add the new trip to the list, but how do I do that :(( 
+    useEffect(() => {
+        axios.get(`/trips/active`)
+            .then(res => {
+                const trips = res.data;
+                setTripList(trips);
+                console.log(tripList)
+            });
+    }, []);
 
     return (
         <Fragment>
