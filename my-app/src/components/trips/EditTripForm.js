@@ -11,7 +11,7 @@ export default function EditTripForm(props) {
     const location = useLocation();
 
     const [tripInfo, setTripInfo] = useState({
-        _id: location.state._id,
+        userId: 1,
         name: location.state.name,
         destination: location.state.destination,
         startDate: location.state.startDate,
@@ -22,15 +22,15 @@ export default function EditTripForm(props) {
         e.preventDefault();
         //props.onAddTrip(tripInfo);
 
-        //axios.put(`/trips/${tripInfo._id}/update`, tripInfo)
-        //    .then(function (response) {
-        //        console.log(response);
-        //    })
-        //    .catch(function (error) {
-        //        console.log(error);
-        //    });
-
+        axios.post(`/trips/${location.state._id}/update`, tripInfo)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     };
+
     return (
         <body>
             <Form class="row gy-2 gx-3 align-items-center " className={classes.form} onSubmit={handleSubmit}>

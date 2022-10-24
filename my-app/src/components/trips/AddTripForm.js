@@ -27,6 +27,7 @@ export default function AddTripForm(props) {
                 console.log(error);
             });
     };
+
     return (
         <body>
             <Form class="row gy-2 gx-3 align-items-center " className={classes.form} onSubmit={handleSubmit}>

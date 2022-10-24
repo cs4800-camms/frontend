@@ -29,6 +29,7 @@ function AllTripsPage() {
                 setTripList(trips);
             });
     }, []);
+
     if(isLoading) {
         return (
             <section>
