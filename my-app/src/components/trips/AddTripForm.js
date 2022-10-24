@@ -9,8 +9,8 @@ export default function AddTripForm(props) {
 
     const [tripInfo, setTripInfo] = useState({
         userId: 1,
-        tripName: "",
-        tripDestination: "",
+        name: "",
+        destination: "",
         startDate: new Date(),
         endDate: new Date(),
     });
@@ -31,12 +31,12 @@ export default function AddTripForm(props) {
         <body>
             <Form class="row gy-2 gx-3 align-items-center " className={classes.form} onSubmit={handleSubmit}>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="e.g My trip #1" onChange={(e) => setTripInfo({ ...tripInfo, tripName: e.target.value })} value={tripInfo.tripName} required />
+                    <input type="text" class="form-control" id="floatingInput" placeholder="e.g My trip #1" onChange={(e) => setTripInfo({ ...tripInfo, name: e.target.value })} value={tripInfo.name} required />
                     <label className={classes.label} for="floatingInput">Trip name</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="e.g Paris, France" onChange={(e) => setTripInfo({ ...tripInfo, tripDestination: e.target.value })} value={tripInfo.tripDestination} required />
+                    <input type="text" class="form-control" id="floatingInput" placeholder="e.g Paris, France" onChange={(e) => setTripInfo({ ...tripInfo, destination: e.target.value })} value={tripInfo.destination} required />
                     <label className={classes.label} for="floatingInput">Where to?</label>
                 </div>
 
