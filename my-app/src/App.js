@@ -11,13 +11,10 @@ function App() {
         <div>
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<AllTripsPage />}>
-                    </Route>
-                    <Route path='/add-trip' element={<AddTripPage />}>
-                    </Route>
-                    <Route path='/itinerary' element={<ItineraryPage />}>
-                    </Route>
-                    <Route path='/edit' element={<EditTripPage />}></Route>
+                    <Route path='/' element={<AllTripsPage />}></Route>
+                    <Route path='/add-trip' element={<AddTripPage />}></Route>
+                    <Route path='/itinerary' element={<ItineraryPage />}></Route>
+                    <Route path='/edit' element={<EditTripPage />}></Route> 
                 </Routes>
             </BrowserRouter>
         </div>

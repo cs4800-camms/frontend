@@ -10,7 +10,7 @@ export default function TripList(props) {
         const newTripList = tripList.filter((trip) => trip._id !== id);
         setTripList(newTripList)
     }
-    
+
     return (
         <body>
             <div class="text-center">

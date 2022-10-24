@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import { useState } from "react";
 import axios from 'axios';
 
-export default function AddTripForm() {
+export default function AddTripForm(props) {
 
     const [tripInfo, setTripInfo] = useState({
         userId: 1,
@@ -17,13 +17,15 @@ export default function AddTripForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        props.onAddTrip(tripInfo);
+
         axios.post(`/trips/create`, tripInfo)
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     };
     return (
         <body>
