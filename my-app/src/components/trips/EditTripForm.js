@@ -11,9 +11,9 @@ export default function EditTripForm(props) {
     const location = useLocation();
 
     const [tripInfo, setTripInfo] = useState({
-        id: location.state.id,
-        tripName: location.state.tripName,
-        tripDestination: location.state.tripDestination,
+        _id: location.state._id,
+        name: location.state.name,
+        destination: location.state.destination,
         startDate: location.state.startDate,
         endDate: location.state.endDate,
     });
@@ -22,24 +22,25 @@ export default function EditTripForm(props) {
         e.preventDefault();
         //props.onAddTrip(tripInfo);
 
-        // axios.post(`/trips/create`, tripInfo)
-        //   .then(function (response) {
-        //    console.log(response);
-        //  })
-        //  .catch(function (error) {
-        //    console.log(error);
-        //  });
+        //axios.put(`/trips/${tripInfo._id}/update`, tripInfo)
+        //    .then(function (response) {
+        //        console.log(response);
+        //    })
+        //    .catch(function (error) {
+        //        console.log(error);
+        //    });
+
     };
     return (
         <body>
             <Form class="row gy-2 gx-3 align-items-center " className={classes.form} onSubmit={handleSubmit}>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="e.g My trip #1" onChange={(e) => setTripInfo({ ...tripInfo, tripName: e.target.value })} value={tripInfo.tripName} required />
+                    <input type="text" class="form-control" id="floatingInput" placeholder="e.g My trip #1" onChange={(e) => setTripInfo({ ...tripInfo, name: e.target.value })} value={tripInfo.name} required />
                     <label className={classes.label} for="floatingInput">Trip name</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="e.g Paris, France" onChange={(e) => setTripInfo({ ...tripInfo, tripDestination: e.target.value })} value={tripInfo.tripDestination} required />
+                    <input type="text" class="form-control" id="floatingInput" placeholder="e.g Paris, France" onChange={(e) => setTripInfo({ ...tripInfo, destination: e.target.value })} value={tripInfo.destination} required />
                     <label className={classes.label} for="floatingInput">Where to?</label>
                 </div>
 

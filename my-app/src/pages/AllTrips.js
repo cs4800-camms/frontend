@@ -13,51 +13,29 @@ function AllTripsPage() {
         navigate("/add-trip");
     }
 
-    const DUMMY_DATA = [
-        {
-            id: 't1',
-            tripName: 'My trip #1',
-            image: "/paris.png",
-            tripDestination: "Paris, France",
-            startDate: "2022-10-20",
-            endDate: "2022-10-25",
-        },
-
-        {
-            _id: 't2',
-            tripName: 'My trip #2',
-            image: "/rome.png",
-            tripDestination: "Rome, Italy",
-            startDate: "2022-12-25",
-            endDate: "2023-01-10",
-        },
-        {
-            id: 't3',
-            tripName: 'My trip #3',
-            image: "/paris.png",
-            tripDestination: "Paris, France",
-            startDate: "2023-01-20",
-            endDate: "2023-01-25",
-        },
-        {
-            id: 't4',
-            tripName: 'My trip #4',
-            image: "/rome.png",
-            tripDestination: "Tokyo, Japan",
-            startDate: "2023-02-21",
-            endDate: "2023-03-20",
-        }
-    ];
+    const [isLoading, setIsLoading] = useState(true);
     const [tripList, setTripList]= useState([]);
 
     useEffect(() => {
+        setIsLoading(true);
         axios.get(`/trips/active`)
             .then(res => {
-                const trips = res.data;
+                console.log(res);
+                return res.data;
+            })
+            .then((trips )=> {
+                setIsLoading(false);
+                console.log(trips);
                 setTripList(trips);
-                console.log(tripList)
             });
     }, []);
+    if(isLoading) {
+        return (
+            <section>
+                <p>Loading...</p>
+            </section>
+        );
+    }
 
     return (
         <Fragment>
