@@ -7,7 +7,7 @@ export default function TripList(props) {
     const [tripList, setTripList] = useState(props.trips);
 
     function handleRemove(id) {
-        const newTripList = tripList.filter((trip) => trip.id !== id);
+        const newTripList = tripList.filter((trip) => trip._id !== id);
         setTripList(newTripList)
     }
     
@@ -20,13 +20,13 @@ export default function TripList(props) {
                 {tripList.map(trip => (
                     <div class="col">
                         <TripItem
-                            key={trip.id}
-                            id={trip.id}
-                            image={trip.image}
-                            title={trip.title}
-                            location={trip.location}
-                            startdate={trip.startdate}
-                            enddate={trip.enddate}
+                            key={trip._id}
+                            id={trip._id}
+//                            image={trip.image}
+                            title={trip.name}
+                            destination={trip.destination}
+                            startdate={trip.startDate}
+                            enddate={trip.endDate}
                             handleRemove={handleRemove}
                         />
                     </div>

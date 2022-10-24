@@ -10,7 +10,7 @@ export default function AddTripForm() {
     const [tripInfo, setTripInfo] = useState({
         userId: 1,
         tripName: "",
-        tripLocation: "",
+        tripDestination: "",
         startDate: new Date(),
         endDate: new Date(),
     });
@@ -34,7 +34,7 @@ export default function AddTripForm() {
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="e.g Paris, France" onChange={(e) => setTripInfo({ ...tripInfo, tripLocation: e.target.value })} value={tripInfo.tripLocation} required />
+                    <input type="text" class="form-control" id="floatingInput" placeholder="e.g Paris, France" onChange={(e) => setTripInfo({ ...tripInfo, tripDestination: e.target.value })} value={tripInfo.tripDestination} required />
                     <label className={classes.label} for="floatingInput">Where to?</label>
                 </div>
 

@@ -8,7 +8,7 @@ export default function TripItem(props) {
 
   return (
     <div className={`text-center ${classes.align}`}>
-      <img src={props.image} className={`img-fluid ${classes.image}`} alt={props.title} />
+      <img src={"/paris.png"} className={`img-fluid ${classes.image}`} alt={props.title} />
       <Link className={classes.link} to="/itinerary">{props.title}</Link>
       <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"></a>
       <div class="btn-group" role="group">
