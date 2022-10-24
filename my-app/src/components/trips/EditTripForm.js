@@ -21,15 +21,14 @@ export default function EditTripForm(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         //props.onAddTrip(tripInfo);
-        //console.log(tripInfo._id)
 
-        axios.put(`/trips/${tripInfo._id}/update`, tripInfo)
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        //axios.put(`/trips/${tripInfo._id}/update`, tripInfo)
+        //    .then(function (response) {
+        //        console.log(response);
+        //    })
+        //    .catch(function (error) {
+        //        console.log(error);
+        //    });
 
     };
     return (
