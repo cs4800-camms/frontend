@@ -1,8 +1,9 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import TripList from '../components/trips/TripList';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../styles.css'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function AllTripsPage() {
 
@@ -39,7 +40,17 @@ function AllTripsPage() {
             enddate: "01/28/2023",
         }
     ];
-    const [tripList, setTripList]= useState(DUMMY_DATA);
+    const [tripList, setTripList]= useState([]);
+
+    useEffect(() => {
+        axios.get(`/trips/active`)
+            .then(res => {
+                const trips = res.data;
+                setTripList(trips);
+                console.log(tripList)
+            });
+    }, []);
+
     return (
         <Fragment>
             <body>
