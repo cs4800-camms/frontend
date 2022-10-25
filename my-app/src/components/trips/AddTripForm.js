@@ -2,10 +2,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import classes from './AddTripForm.module.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Form from 'react-bootstrap/Form';
-import { useState } from "react";
+import { useState, useContext } from "react";
+import GlobalContext from '../../context/global';
 import axios from 'axios';
 
-export default function AddTripForm(props) {
+export default function AddTripForm({ onAddTrip }) {
 
     const [tripInfo, setTripInfo] = useState({
         userId: 1,
@@ -15,17 +16,25 @@ export default function AddTripForm(props) {
         endDate: new Date(),
     });
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        props.onAddTrip(tripInfo);
+    const { setTripList } = useContext(GlobalContext);
 
-        axios.post(`/trips/create`, tripInfo)
+    const addTrip = (newTrip) => {
+       setTripList((oldTrips) => [newTrip, ...oldTrips]);
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        await axios.post(`/trips/create`, tripInfo)
             .then(function (response) {
                 console.log(response);
+                addTrip(response.data);
             })
             .catch(function (error) {
                 console.log(error);
             });
+
+        onAddTrip(tripInfo); //navigates to home page
     };
 
     return (

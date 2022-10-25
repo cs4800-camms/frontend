@@ -2,11 +2,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import classes from './AddTripForm.module.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Form from 'react-bootstrap/Form';
-import { useState } from "react";
+import { useState, useContext } from "react";
+import GlobalContext from '../../context/global';
 import axios from 'axios';
 import { useLocation } from "react-router-dom";
 
-export default function EditTripForm(props) {
+export default function EditTripForm({ onEditTrip }) {
 
     const location = useLocation();
 
@@ -18,17 +19,25 @@ export default function EditTripForm(props) {
         endDate: location.state.endDate.substring(0,10),
     });
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        props.onEditTrip(tripInfo);
+    const { setTripList } = useContext(GlobalContext);
 
-        axios.post(`/trips/${location.state._id}/update`, tripInfo)
+    const updateTrip = (updatedTrip) => {
+       setTripList(oldTrips => oldTrips.map(oldTrip => oldTrip._id === updatedTrip._id ? updatedTrip : oldTrip));
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        await axios.post(`/trips/${location.state._id}/update`, tripInfo)
             .then(function (response) {
                 console.log(response);
+                updateTrip(response.data);
             })
             .catch(function (error) {
                 console.log(error);
             });
+
+        onEditTrip(tripInfo);
     };
 
     return (
