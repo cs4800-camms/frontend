@@ -1,23 +1,33 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import AllTripsPage from './pages/AllTrips';
-import AddTripPage from './pages/AddTrip';
-import { BrowserRouter } from 'react-router-dom';
-import ItineraryPage from './pages/Itinerary';
-import EditTripPage from './pages/EditTrip';
+import React, { useState } from "react";
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import AllTripsPage from './pages/AllTripsPage';
+import AddTripPage from './pages/AddTripPage';
+import ItineraryPage from './pages/ItineraryPage';
+import EditTripPage from './pages/EditTripPage';
+import GlobalContext from "./context/global"
 
-function App() {
+export default function App() {
+
+    const [tripList, setTripList]= useState([]);
+
     return (
-        <div>
-            <BrowserRouter>
-                <Routes>
-                    <Route path='/' element={<AllTripsPage />}></Route>
-                    <Route path='/add-trip' element={<AddTripPage />}></Route>
-                    <Route path='/itinerary' element={<ItineraryPage />}></Route>
-                    <Route path='/edit' element={<EditTripPage />}></Route> 
-                </Routes>
-            </BrowserRouter>
-        </div>
+
+        <GlobalContext.Provider value={{
+            tripList,
+            setTripList
+        }}>
+
+            <div className="App">
+                <BrowserRouter>
+                    <Routes>
+                        <Route path='/' element={<AllTripsPage />}></Route>
+                        <Route path='/add-trip' element={<AddTripPage />}></Route>
+                        <Route path='/itinerary' element={<ItineraryPage />}></Route>
+                        <Route path='/edit' element={<EditTripPage />}></Route>
+                    </Routes>
+                </BrowserRouter>
+            </div>
+
+        </GlobalContext.Provider>
     );
 }
-export default App;

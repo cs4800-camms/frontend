@@ -3,9 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import axios from 'axios';
 
-export default function TripList(props) {
-
-    const [tripList, setTripList] = useState(props.trips);
+export default function TripList({ tripList, setTripList }) {
 
     function handleRemove(id) {
         const newTripList = tripList.filter((trip) => trip._id !== id);
