@@ -3,45 +3,41 @@ import classes from './AddTripForm.module.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Form from 'react-bootstrap/Form';
 import { useState, useContext } from "react";
-import GlobalContext from '../../context/global';
+import GlobalContext from '../../../context/global';
 import axios from 'axios';
-import { useLocation } from "react-router-dom";
 
-export default function EditTripForm({ onEditTrip }) {
-
-    const location = useLocation();
-
+export default function AddTripForm({ onAddTrip }) {
     const [tripInfo, setTripInfo] = useState({
         userId: 1,
-        name: location.state.name,
-        destination: location.state.destination,
-        startDate: location.state.startDate.substring(0,10),
-        endDate: location.state.endDate.substring(0,10),
+        name: "",
+        destination: "",
+        startDate: new Date(),
+        endDate: new Date(),
     });
 
     const { setTripList } = useContext(GlobalContext);
 
-    const updateTrip = (updatedTrip) => {
-       setTripList(oldTrips => oldTrips.map(oldTrip => oldTrip._id === updatedTrip._id ? updatedTrip : oldTrip));
+    const addTrip = (newTrip) => {
+       setTripList((oldTrips) => [newTrip, ...oldTrips]);
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await axios.post(`/trips/${location.state._id}/update`, tripInfo)
+        await axios.post(`/trips/create`, tripInfo)
             .then(function (response) {
                 console.log(response);
-                updateTrip(response.data);
+                addTrip(response.data);
             })
             .catch(function (error) {
                 console.log(error);
             });
 
-        onEditTrip(tripInfo);
+        onAddTrip(tripInfo); //navigates to home page
     };
 
     return (
-        <body>
+        <>
             <Form class="row gy-2 gx-3 align-items-center " className={classes.form} onSubmit={handleSubmit}>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="floatingInput" placeholder="e.g My trip #1" onChange={(e) => setTripInfo({ ...tripInfo, name: e.target.value })} value={tripInfo.name} required />
@@ -71,6 +67,6 @@ export default function EditTripForm({ onEditTrip }) {
                     <button class="btn btn-primary btn-lg">Start Planning</button>
                 </div>
             </Form>
-        </body>
+        </>
     );
 }

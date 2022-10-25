@@ -1,10 +1,8 @@
-import TripItem from "./TripItem";
+import TripItem from "../item/TripItem";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useState } from "react";
 import axios from 'axios';
 
 export default function TripList({ tripList, setTripList }) {
-
     function handleRemove(id) {
         const newTripList = tripList.filter((trip) => trip._id !== id);
         setTripList(newTripList)
@@ -19,14 +17,14 @@ export default function TripList({ tripList, setTripList }) {
     }
 
     return (
-        <body>
-            <div class="text-center">
+        <>
+            <div className="text-center">
                 <h2> Your trips </h2>
             </div>
-            <div class="container">
-                        <div class="row">
+            <div className="container">
+                        <div className="row">
                             {tripList.map(trip => (
-                                <div class="col-sm-4">
+                                <div className="col-sm-4">
                                     <TripItem
                                         key={trip._id}
                                         _id={trip._id}
@@ -41,6 +39,6 @@ export default function TripList({ tripList, setTripList }) {
                             ))}
                         </div>
                         </div>
-        </body>
+        </>
     );
 }

@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import AddTripForm from "../components/trips/AddTripForm";
+import AddTripForm from "../components/trips/add/AddTripForm";
 
-
-function AddTripPage() {
+export default function AddTripPage() {
     const navigate = useNavigate();
 
     function addTrip(tripInfo) {
@@ -16,4 +15,3 @@ function AddTripPage() {
         </section>
     );
 }
-export default AddTripPage;
