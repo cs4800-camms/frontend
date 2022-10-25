@@ -17,9 +17,9 @@ export default function AllTripsPage() {
     const [isLoading, setIsLoading] = useState(true);
     const { tripList, setTripList } = useContext(GlobalContext);
 
-    useEffect(() => {
+    useEffect(async () => {
         setIsLoading(true);
-        axios.get(`/trips/active`)
+        await axios.get(`/trips/active`)
             .then((res) => {
                 console.log(res);
                 return res.data;
