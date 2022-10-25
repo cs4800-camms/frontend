@@ -14,13 +14,13 @@ export default function EditTripForm(props) {
         userId: 1,
         name: location.state.name,
         destination: location.state.destination,
-        startDate: location.state.startDate,
-        endDate: location.state.endDate,
+        startDate: location.state.startDate.substring(0,10),
+        endDate: location.state.endDate.substring(0,10),
     });
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        //props.onAddTrip(tripInfo);
+        props.onEditTrip(tripInfo);
 
         axios.post(`/trips/${location.state._id}/update`, tripInfo)
             .then(function (response) {
