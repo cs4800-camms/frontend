@@ -1,9 +1,9 @@
 import React, { Fragment, useState, useEffect, useContext } from 'react';
-import TripList from '../components/trips/TripList';
+import TripList from '../../components/trips/list/TripList';
 import "bootstrap/dist/css/bootstrap.min.css";
-import '../styles.css'
+import './AllTripsPage.css'
 import { useNavigate } from 'react-router-dom';
-import GlobalContext from '../context/global'
+import GlobalContext from '../../context/global'
 import axios from 'axios';
 
 export default function AllTripsPage() {
@@ -41,18 +41,18 @@ export default function AllTripsPage() {
 
     return (
         <Fragment>
-            <body>
-                <div class="text-center">
+            <>
+                <div className="text-center">
                     <h1>Trippy Travel</h1>
                 </div>
                 <br></br>
                 <br></br>
                 <TripList tripList={tripList} setTripList={setTripList}></TripList>
                 <br></br><br></br><br></br>
-                <div class="text-center">
-                    <button onClick={navigateToAdd} type="button" class="btn btn-primary btn-lg">Plan new trip</button>
+                <div className="text-center">
+                    <button onClick={navigateToAdd} type="button" className="btn btn-primary btn-lg">Plan new trip</button>
                 </div>
-            </body>
+            </>
         </Fragment>
     );
 

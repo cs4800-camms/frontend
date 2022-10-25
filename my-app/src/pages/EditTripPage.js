@@ -1,8 +1,8 @@
 import { Fragment } from "react";
-import EditTripForm from "../components/trips/EditTripForm";
+import EditTripForm from "../components/trips/edit/EditTripForm";
 import { useNavigate } from "react-router-dom";
 
-function EditTripPage() {
+export default function EditTripPage() {
     const navigate = useNavigate();
 
     function editTrip(tripInfo) {
@@ -16,4 +16,3 @@ function EditTripPage() {
         </Fragment>
     );
 }
-export default EditTripPage;

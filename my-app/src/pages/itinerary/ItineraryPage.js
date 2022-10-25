@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./styles2.css"
+import "./ItineraryPage.css"
 
 export default function ItineraryPage() {
     return (

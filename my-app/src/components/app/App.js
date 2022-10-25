@@ -1,22 +1,19 @@
 import React, { useState } from "react";
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import AllTripsPage from './pages/AllTripsPage';
-import AddTripPage from './pages/AddTripPage';
-import ItineraryPage from './pages/ItineraryPage';
-import EditTripPage from './pages/EditTripPage';
-import GlobalContext from "./context/global"
+import AllTripsPage from '../../pages/all-trips/AllTripsPage';
+import AddTripPage from '../../pages/AddTripPage';
+import ItineraryPage from '../../pages/itinerary/ItineraryPage';
+import EditTripPage from '../../pages/EditTripPage';
+import GlobalContext from "../../context/global"
 
 export default function App() {
-
-    const [tripList, setTripList]= useState([]);
+    const [tripList, setTripList] = useState([]);
 
     return (
-
         <GlobalContext.Provider value={{
             tripList,
             setTripList
         }}>
-
             <div className="App">
                 <BrowserRouter>
                     <Routes>
@@ -27,7 +24,6 @@ export default function App() {
                     </Routes>
                 </BrowserRouter>
             </div>
-
         </GlobalContext.Provider>
     );
 }
