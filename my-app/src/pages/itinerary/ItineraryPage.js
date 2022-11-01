@@ -1,10 +1,36 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ItineraryPage.css"
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from 'axios';
 
 export default function ItineraryPage() {
+
+    const [trip, setTrip] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
+    const { tripId } = useParams();
+
+    useEffect(() => {
+        const getTripById = async () => {
+            setIsLoading(true);
+            axios.get(`/trips/${tripId}`)
+                .then((res) => {
+                    console.log(res);
+                    return res?.data;
+                })
+                .then((tripData) => {
+                    setIsLoading(false);
+                    console.log(tripData);
+                    setTrip(tripData);
+                });
+        }
+
+        getTripById();
+    }, [tripId]);
+
     return (
         <body>
-            <h1>Plan Your Trip</h1>
+            <h1>Plan Your {trip.name}</h1>
             <br></br><br></br>
             <div class="row">
                 <div class="col">
