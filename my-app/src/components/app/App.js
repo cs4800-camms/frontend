@@ -19,7 +19,7 @@ export default function App() {
                     <Routes>
                         <Route path='/' element={<AllTripsPage />}></Route>
                         <Route path='/add-trip' element={<AddTripPage />}></Route>
-                        <Route path='/itinerary' element={<ItineraryPage />}></Route>
+                        <Route path='/itinerary/:tripId' element={<ItineraryPage />}></Route>
                         <Route path='/edit' element={<EditTripPage />}></Route>
                     </Routes>
                 </BrowserRouter>
