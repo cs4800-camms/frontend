@@ -8,11 +8,14 @@ import GlobalContext from "../../context/global"
 
 export default function App() {
     const [tripList, setTripList] = useState([]);
+    const [dayList, setDayList] = useState(['']);
 
     return (
         <GlobalContext.Provider value={{
             tripList,
-            setTripList
+            setTripList,
+            dayList,
+            setDayList
         }}>
             <div className="App">
                 <BrowserRouter>
