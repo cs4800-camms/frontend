@@ -19,7 +19,6 @@ export default function ItineraryPage() {
             setIsLoading(true);
             axios.get(`/trips/${tripId}`)
                 .then((res) => {
-                    console.log(res);
                     return res?.data;
                 })
                 .then((tripData) => {
@@ -36,7 +35,6 @@ export default function ItineraryPage() {
         setIsLoading(true);
         axios.get(`/days/${tripId}`)
             .then((res) => {
-                console.log(res);
                 return res?.data;
             })
             .then((days) => {

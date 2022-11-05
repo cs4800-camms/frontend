@@ -12,5 +12,4 @@ export default function DayItem({day}) {
             </div>
         </div>
     );
-    //                <i onClick={() => handleDayRemove(singleDay._id)} class="bi bi-trash"></i>
 }
