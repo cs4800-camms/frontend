@@ -1,21 +1,24 @@
+import DayList from '../../components/days/list/DayList';
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./ItineraryPage.css"
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from 'axios';
+import GlobalContext from '../../context/global';
+import { useContext } from "react";
 
 export default function ItineraryPage() {
 
     const [trip, setTrip] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const { tripId } = useParams();
+    const { dayList, setDayList } = useContext(GlobalContext);
 
+    //gets trip info
     useEffect(() => {
         const getTripById = async () => {
             setIsLoading(true);
             axios.get(`/trips/${tripId}`)
                 .then((res) => {
-                    console.log(res);
                     return res?.data;
                 })
                 .then((tripData) => {
@@ -24,40 +27,39 @@ export default function ItineraryPage() {
                     setTrip(tripData);
                 });
         }
-
         getTripById();
     }, [tripId]);
+
+    //gets days for the trip
+    useEffect(() => {
+        setIsLoading(true);
+        axios.get(`/days/${tripId}`)
+            .then((res) => {
+                return res?.data;
+            })
+            .then((days) => {
+                setIsLoading(false);
+                console.log(days);
+                setDayList(days);
+            });
+    }, [setDayList, tripId]);
+
+    if(isLoading) {
+        return (
+            <section>
+                <p>Loading...</p>
+            </section>
+        );
+    }
 
     return (
         <body>
             <h1>Plan Your {trip.name}</h1>
             <br></br><br></br>
             <div class="row">
-                <div class="col">
-                    <div class="list-group">
-                        <h2> Your itinerary </h2>
-                        <a href="#" class="list-group-item" data-toggle="collapse">Day 1</a>
-                        <div class="list-group">
-                            <a href="#" class="list-group-item">Breakfast at cafe</a>
-                            <a href="#" class="list-group-item">Visit the garden</a>
-                            <a href="#" class="list-group-item">Go to club</a>
-                        </div>
-
-                        <a href="#" class="list-group-item" data-toggle="collapse">Day 2</a>
-                        <div class="list-group">
-                            <a href="#" class="list-group-item">Lunch at Mcdonalds</a>
-                            <a href="#" class="list-group-item">Go to Lake ArrowHead</a>
-                        </div>
-
-                        <a href="#" class="list-group-item" data-toggle="collapse">Day 3</a>
-                        <div class="list-group">
-                            <a href="#" class="list-group-item">Hiking at a trail</a>
-                            <a href="#" class="list-group-item">Lunch at Chipotle</a>
-                            <a href="#" class="list-group-item">Shopping at century city</a>
-                            <a href="#" class="list-group-item">Dinner at Shake Shack</a>
-                            <a href="#" class="list-group-item">Go the club</a>
-                        </div>
-                    </div>
+                <div className="col">
+                    <h2>Itinerary</h2>
+                    <DayList dayList={dayList} setDayList={setDayList} tripId={tripId} trip={trip}/>
                 </div>
                 <div className="col">
                     <h2>Activity Suggestions</h2>
