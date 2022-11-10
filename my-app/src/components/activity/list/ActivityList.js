@@ -1,9 +1,8 @@
 import axios from "axios";
 import ActivityItem from "../item/ActivityItem";
-import { useParams } from "react-router-dom";
 import { useState } from "react";
+
 export default function ActivityList({ activityList, setActivityList, dayId, tripId }) {
-    console.log("Day id: " + dayId);
     const [activityInfo, setActivityInfo] = useState({
         _id: "1",
         day_id: dayId,
@@ -14,7 +13,6 @@ export default function ActivityList({ activityList, setActivityList, dayId, tri
     });
 
     const addActivity = (newActivity) => {
-
         setActivityList((oldActivities) => [...oldActivities, newActivity]);
     }
 
@@ -24,7 +22,6 @@ export default function ActivityList({ activityList, setActivityList, dayId, tri
 
         await axios.post(`/activities/create`, activityInfo)
             .then(function (response) {
-                console.log("add")
                 console.log(response);
                 addActivity(response.data);
             })
@@ -33,12 +30,11 @@ export default function ActivityList({ activityList, setActivityList, dayId, tri
             });
     }
 
-    
     function handleRemove(id) {
         const newActivityList = activityList.filter((activity) => activity._id !== id);
         setActivityList(newActivityList)
 
-        axios.delete(`/activities/${id}/delete`)
+        axios.delete(`/activities/${id}`)
             .then(function (response) {
                 console.log(response);
             })
@@ -46,7 +42,6 @@ export default function ActivityList({ activityList, setActivityList, dayId, tri
                 console.log(error);
             });
     }
-
 
     return (
         <div>
@@ -61,8 +56,5 @@ export default function ActivityList({ activityList, setActivityList, dayId, tri
             <input type="text" class="form-control" id="floatingInput" placeholder="Activity name" onChange={(e) => setActivityInfo({ ...activityInfo, name: e.target.value })} value={activityInfo.name} />
             <button onClick={handleActivityAdd} type="button" class="btn btn-primary" style={{ marginLeft: '3rem' }}>Add Activity</button>
         </div>
-
-
-
     );
 }

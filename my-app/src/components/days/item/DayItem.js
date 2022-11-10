@@ -1,17 +1,13 @@
 import moment from 'moment';
 import uniqid from 'uniqid';
 
-import GlobalContext from '../../../context/global';
-import { useContext } from 'react';
+import { useState, useEffect } from 'react';
 import ActivityList from '../../activity/list/ActivityList';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-
 
 export default function DayItem({ day, tripId }) {
-    const { activityList, setActivityList } = useContext(GlobalContext);
+    const [activityList, setActivityList] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-
     const id = uniqid();
 
     //gets activities for the trip
@@ -19,13 +15,11 @@ export default function DayItem({ day, tripId }) {
         setIsLoading(true);
         axios.get(`/activities/${day._id}`)
             .then((res) => {
-                console.log("day Id")
                 console.log(day._id)
                 return res?.data;
             })
             .then((activities) => {
                 setIsLoading(false);
-                console.log("activities")
                 console.log(activities);
                 setActivityList(activities);
             });
@@ -47,5 +41,4 @@ export default function DayItem({ day, tripId }) {
             </div>
         </div>
     );
-    //                <i onClick={() => handleDayRemove(singleDay._id)} class="bi bi-trash"></i>
 }

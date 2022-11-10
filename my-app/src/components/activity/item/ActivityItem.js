@@ -12,6 +12,5 @@ export default function ActivityItem({ activity, remove }) {
                 <i onClick={() => remove(activity._id)} class="bi bi-x"></i>
             </li>
         </div>
-
-    )
+    );
 }
