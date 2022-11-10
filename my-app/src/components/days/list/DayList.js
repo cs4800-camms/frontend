@@ -48,7 +48,7 @@ export default function DayList({dayList, setDayList, tripId, trip}) {
         <div>
             <div className="accordion" id="accordionPanelsStayOpenExample">
                 {dayList.map((day, index) => (
-                    <DayItem day={day} />
+                    <DayItem day={day} tripId={tripId}/>
                 ))}
             </div>
             {button}
