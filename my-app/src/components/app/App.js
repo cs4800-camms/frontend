@@ -5,6 +5,9 @@ import AddTripPage from '../../pages/AddTripPage';
 import ItineraryPage from '../../pages/itinerary/ItineraryPage';
 import EditTripPage from '../../pages/EditTripPage';
 import GlobalContext from "../../context/global"
+import LogInPage from "../../pages/LogInPage"
+import LandingPage from "../../pages/LandingPage"
+import SignInPage from "../../pages/SignInPage";
 
 export default function App() {
     const [tripList, setTripList] = useState([]);
@@ -21,6 +24,11 @@ export default function App() {
                         <Route path='/add-trip' element={<AddTripPage />}></Route>
                         <Route path='/itinerary' element={<ItineraryPage />}></Route>
                         <Route path='/edit' element={<EditTripPage />}></Route>
+                        <Route path='/login' element={<LogInPage />}></Route>
+                        <Route path='/signin' element={<SignInPage />}></Route>
+                        <Route path='/landing' element={<LandingPage />}></Route>
+                        
+
                     </Routes>
                 </BrowserRouter>
             </div>
