@@ -1,7 +1,7 @@
 import React  from 'react';
 import { useNavigate } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
-import Logo from '/Users/nishatourjob/Repo/frontend/my-app/src/components/Trippy_logo.png'
+import Logo from '../components/Trippy_logo.png';
 
 
 
