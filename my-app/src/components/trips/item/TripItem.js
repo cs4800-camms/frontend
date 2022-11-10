@@ -4,6 +4,7 @@ import classes from "./TripItem.module.css";
 import 'jquery/dist/jquery.min.js'
 import 'bootstrap/dist/js/bootstrap.min.js'
 import { useNavigate } from "react-router-dom";
+import paris from "./paris.png"
 
 export default function TripItem(props) {
     const navigate = useNavigate();
@@ -14,8 +15,8 @@ export default function TripItem(props) {
 
     return (
         <div className={`text-center ${classes.align}`}>
-            <img src={"/paris.png"} className={`img-fluid ${classes.image}`} alt={props.name} />
-            <Link className={classes.link} to="/itinerary">{props.name}</Link>
+            <img src={paris} className={`img-fluid ${classes.image}`} alt={props.name} />
+            <Link className={classes.link} to={`/itinerary/${props._id}`}>{props.name}</Link>
             <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"></a>
             <div className="btn-group" role="group">
                 <i id="btnGroupDrop1" type="icon" className={`btn btn-sm dropdown-toggle ${classes.button}`} data-bs-toggle="dropdown" aria-expanded="false"></i>

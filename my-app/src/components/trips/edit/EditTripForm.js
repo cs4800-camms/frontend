@@ -27,7 +27,7 @@ export default function EditTripForm({ onEditTrip }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await axios.post(`/trips/${location.state._id}/update`, tripInfo)
+        await axios.put(`/trips/${location.state._id}/update`, tripInfo)
             .then(function (response) {
                 console.log(response);
                 updateTrip(response.data);

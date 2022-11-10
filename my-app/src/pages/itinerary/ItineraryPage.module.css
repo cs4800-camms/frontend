@@ -25,3 +25,7 @@
 .list-group>.list-group>.list-group-item {
   padding-left: 2.5rem;
 }
+
+i:hover {
+  cursor: pointer;
+}

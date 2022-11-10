@@ -11,18 +11,21 @@ import SignInPage from "../../pages/SignInPage";
 
 export default function App() {
     const [tripList, setTripList] = useState([]);
+    const [dayList, setDayList] = useState([]);
 
     return (
         <GlobalContext.Provider value={{
             tripList,
-            setTripList
+            setTripList,
+            dayList,
+            setDayList
         }}>
             <div className="App">
                 <BrowserRouter>
                     <Routes>
                         <Route path='/' element={<AllTripsPage />}></Route>
                         <Route path='/add-trip' element={<AddTripPage />}></Route>
-                        <Route path='/itinerary' element={<ItineraryPage />}></Route>
+                        <Route path='/itinerary/:tripId' element={<ItineraryPage />}></Route>
                         <Route path='/edit' element={<EditTripPage />}></Route>
                         <Route path='/login' element={<LogInPage />}></Route>
                         <Route path='/signin' element={<SignInPage />}></Route>
