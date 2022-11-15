@@ -7,7 +7,7 @@ import EditTripPage from '../../pages/EditTripPage';
 import GlobalContext from "../../context/global"
 import LogInPage from "../../pages/LogInPage"
 import LandingPage from "../../pages/LandingPage"
-import SignInPage from "../../pages/SignInPage";
+import SignUpPage from "../../pages/SignUpPage";
 
 export default function App() {
     const [tripList, setTripList] = useState([]);
@@ -26,12 +26,13 @@ export default function App() {
             <div className="App">
                 <BrowserRouter>
                     <Routes>
-                        <Route path='/' element={<AllTripsPage />}></Route>
+                        <Route path='/' element={<LandingPage />}></Route>
+                        <Route path='/all-trips' element={<AllTripsPage />}></Route>
                         <Route path='/add-trip' element={<AddTripPage />}></Route>
                         <Route path='/itinerary/:tripId' element={<ItineraryPage />}></Route>
                         <Route path='/edit' element={<EditTripPage />}></Route>
                         <Route path='/login' element={<LogInPage />}></Route>
-                        <Route path='/signin' element={<SignInPage />}></Route>
+                        <Route path='/signup' element={<SignUpPage />}></Route>
                         <Route path='/landing' element={<LandingPage />}></Route>
                         
 

@@ -1,16 +1,16 @@
 import React  from 'react';
 import { useNavigate } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
-export default function SignInPage(){
+export default function SignUpPage(){
     const navigate = useNavigate();
 
-    const navigateToHome = () => {
-        navigate("/");
+    const navigateToTrips = () => {
+        navigate("/all-trips");
     }
     return(
         <body>
             <br></br><br></br>
-            <h1>Sign In</h1>
+            <h1>Sign Up</h1>
             <br></br><br></br>
             <form class="row gy-2 gx-3 align-items-center " >
                 <div class="form-floating mb-3">
@@ -40,7 +40,7 @@ export default function SignInPage(){
 
                 <br></br>
                 <div class="col-auto">
-                    <button onClick={navigateToHome} class="btn btn-primary btn-lg">Enter</button>
+                    <button onClick={navigateToTrips} class="btn btn-primary btn-lg">Enter</button>
                 </div>
             </form>
         </body>

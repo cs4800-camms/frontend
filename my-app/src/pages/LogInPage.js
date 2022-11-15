@@ -4,8 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function LogIn(){
     const navigate = useNavigate();
 
-    const navigateToHome = () => {
-        navigate("/");
+    const navigateToTrips = () => {
+        navigate("/all-trips");
     }
     
     return(
@@ -25,7 +25,7 @@ export default function LogIn(){
                 </div>
                 <br></br>
                 <div class="col-auto">
-                    <button onClick={navigateToHome} class="btn btn-primary btn-lg">Enter</button>
+                    <button onClick={navigateToTrips} class="btn btn-primary btn-lg">Enter</button>
                 </div>
             </form>
         </body>
