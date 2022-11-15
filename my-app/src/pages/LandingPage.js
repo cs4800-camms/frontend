@@ -11,8 +11,8 @@ export default function LandingPage(){
     const navigateToLogin = () => {
         navigate("/login");
     }
-    const navigateToSignin = () => {
-        navigate("/Signin");
+    const navigateToSignup = () => {
+        navigate("/signup");
     }
     return(
         <body>
@@ -31,7 +31,7 @@ export default function LandingPage(){
             </div>
             <br></br>
             <div class="col-auto">
-                    <button onClick={navigateToSignin} class="btn btn-primary btn-lg">Sign In</button>
+                    <button onClick={navigateToSignup} class="btn btn-primary btn-lg">Sign Up</button>
             </div>
             
 
