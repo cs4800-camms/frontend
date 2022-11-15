@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import GlobalContext from '../../context/global';
 import { useContext } from "react";
+import "./ItineraryPage.css"
 
 export default function ItineraryPage() {
 
