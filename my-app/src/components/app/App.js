@@ -21,7 +21,8 @@ export default function App() {
             dayList,
             setDayList,
             activityList,
-            setActivityList
+            setActivityList,
+        
         }}>
             <div className="App">
                 <BrowserRouter>

@@ -1,17 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import AddTripForm from "../components/trips/add/AddTripForm";
+import NavBar from "../components/ui/NavBar";
 
 export default function AddTripPage() {
     const navigate = useNavigate();
 
     function addTrip(tripInfo) {
-        navigate("/");
+        navigate("/all-trips");
     }
 
     return (
-        <section>
-            <h1> Plan a New Trip</h1>
+        <body>
+            <NavBar></NavBar>
+            <br></br>
             <AddTripForm onAddTrip={addTrip}></AddTripForm>
-        </section>
+        </body>
     );
 }

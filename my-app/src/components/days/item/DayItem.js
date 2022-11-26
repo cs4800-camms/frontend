@@ -4,6 +4,7 @@ import uniqid from 'uniqid';
 import { useState, useEffect } from 'react';
 import ActivityList from '../../activity/list/ActivityList';
 import axios from 'axios';
+import classes from "./DayItem.module.css"
 
 export default function DayItem({ day, tripId }) {
     const [activityList, setActivityList] = useState([]);
@@ -26,10 +27,11 @@ export default function DayItem({ day, tripId }) {
     }, [setActivityList, day._id]);
 
     return (
-        <div key={day._id}>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={String("#" + id)} aria-expanded="false" aria-controls={id}>
+        <div key={day._id} >
+            <br></br>
+            <div className={`accordion-item ${classes.item}`}>
+                <h2 className={`accordion-header ${classes.textHeader}`} id="panelsStayClose-headingThree">
+                    <button className={`accordion-button collapsed ${classes.dayHeader}`} type="button" data-bs-toggle="collapse" data-bs-target={String("#" + id)} aria-expanded="false" aria-controls={id}>
                         {moment(day.date).format("dddd, MMMM Do")}</button>
                 </h2>
 
