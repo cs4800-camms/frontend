@@ -19,7 +19,7 @@ export default function TripList({ tripList, setTripList }) {
     return (
         <>
             <div className="text-center">
-                <h2> Your trips </h2>
+                <h2 style={{fontSize: "40px"}}> Your Trips </h2>
             </div>
             <div className="container">
                         <div className="row">

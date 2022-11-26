@@ -1,6 +1,7 @@
 import axios from "axios";
 import ActivityItem from "../item/ActivityItem";
 import { useState } from "react";
+import classes from "./ActivityList.module.css";
 
 export default function ActivityList({ activityList, setActivityList, dayId, tripId }) {
     const [activityInfo, setActivityInfo] = useState({
@@ -54,7 +55,7 @@ export default function ActivityList({ activityList, setActivityList, dayId, tri
             </ul>
 
             <input type="text" class="form-control" id="floatingInput" placeholder="Activity name" onChange={(e) => setActivityInfo({ ...activityInfo, name: e.target.value })} value={activityInfo.name} />
-            <button onClick={handleActivityAdd} type="button" class="btn btn-primary" style={{ marginLeft: '3rem' }}>Add Activity</button>
+            <button onClick={handleActivityAdd} type="button" className={`btn btn-primary ${classes.button}`} >Add Activity</button>
         </div>
     );
 }
