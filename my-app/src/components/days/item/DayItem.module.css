@@ -1,9 +1,10 @@
-.dayHeader{
-background-color: #2B3A55 !important;
-color:#F2E5E5;
-
+.dayHeader {
+   background-color: white !important ;
+   color: black !important;
+   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+   font-size: 20px;;
 }
-.dayHeader:hover{
-    background-color: #FF9494 !important;
-    color: #2B3A55;
+
+.dayHeader:hover {
+    background-color:white !important;
 }

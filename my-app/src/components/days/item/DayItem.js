@@ -1,10 +1,9 @@
 import moment from 'moment';
 import uniqid from 'uniqid';
-
 import { useState, useEffect } from 'react';
 import ActivityList from '../../activity/list/ActivityList';
 import axios from 'axios';
-import classes from './DayItem.module.css';
+import classes from "./DayItem.module.css"
 
 export default function DayItem({ day, tripId }) {
     const [activityList, setActivityList] = useState([]);
@@ -14,7 +13,7 @@ export default function DayItem({ day, tripId }) {
     //gets activities for the trip
     useEffect(() => {
         setIsLoading(true);
-        axios.get(`/activities/${day._id}`)
+        axios.get(/activities/${day._id})
             .then((res) => {
                 console.log(day._id)
                 return res?.data;
@@ -27,10 +26,11 @@ export default function DayItem({ day, tripId }) {
     }, [setActivityList, day._id]);
 
     return (
-        <div key={day._id}>
-            <div className= {`accordion-item`}>
-                <h2 className = "accordion-header" id="panelsStayOpen-headingThree">
-                    <button className= {`accordion-button collapsed ${classes.dayHeader}`} type="button" data-bs-toggle="collapse" data-bs-target={String("#" + id)} aria-expanded="false" aria-controls={id}>
+        <div key={day._id} >
+            <br></br>
+            <div className={accordion-item ${classes.item}}>
+                <h2 className={accordion-header ${classes.textHeader}} id="panelsStayClose-headingThree">
+                    <button className={accordion-button collapsed ${classes.dayHeader}} type="button" data-bs-toggle="collapse" data-bs-target={String("#" + id)} aria-expanded="false" aria-controls={id}>
                         {moment(day.date).format("dddd, MMMM Do")}</button>
                 </h2>
 

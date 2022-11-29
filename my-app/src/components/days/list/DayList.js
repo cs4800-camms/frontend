@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from 'axios';
 import moment from 'moment';
 import DayItem from "../item/DayItem";
+import classes from "./DayList.module.css";
 
 export default function DayList({dayList, setDayList, tripId, trip}) {
 
@@ -46,11 +47,12 @@ export default function DayList({dayList, setDayList, tripId, trip}) {
 
     return (
         <div>
-            <div className="accordion" id="accordionPanelsStayOpenExample">
+            <div className={`accordion ${classes.dayHeader}`} id="accordionPanelsStayOpenExample">
                 {dayList.map((day, index) => (
                     <DayItem day={day} tripId={tripId}/>
                 ))}
             </div>
+            <br></br>
             {button}
         </div>
     );
