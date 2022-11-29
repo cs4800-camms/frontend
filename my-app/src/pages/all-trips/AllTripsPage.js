@@ -5,6 +5,7 @@ import './AllTripsPage.css'
 import { useNavigate } from 'react-router-dom';
 import GlobalContext from '../../context/global'
 import axios from 'axios';
+import Navigation from '../../components/UI/Navigation'
 
 export default function AllTripsPage() {
 
@@ -42,17 +43,19 @@ export default function AllTripsPage() {
     return (
         <Fragment>
             <>
-                <div className="text-center">
-                    <h1>Trippy Travel</h1>
-                </div>
+                <Navigation></Navigation>
                 <br></br>
-                <br></br>
+                
                 <TripList tripList={tripList} setTripList={setTripList}></TripList>
-                <br></br><br></br><br></br>
+                <br></br>
                 <div className="text-center">
                     <button onClick={navigateToAdd} type="button" className="btn btn-primary btn-lg">Plan new trip</button>
                 </div>
+                <br></br><br></br>
+                
             </>
         </Fragment>
     );
+
+    
 }

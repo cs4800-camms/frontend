@@ -1,17 +1,21 @@
 body {
-    margin: 25px;
+    
 }
 button {
-    background-color: #9f7e69 !important;
+    background-color: #E97777 !important ;
     border:none !important;
 }
 button:hover {
-    background-color: #ac8f7d !important;
+    background-color: #FF9F9F !important;
 }
 h1{
+
+    font:"Saccramento", arial;
     font-weight: bold;
     text-align:center
+    
 }
 form{
     display:inline-block !important;
 }
+

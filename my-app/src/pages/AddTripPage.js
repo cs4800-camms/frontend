@@ -10,7 +10,9 @@ export default function AddTripPage() {
 
     return (
         <section>
+            <br></br><br></br><br></br>
             <h1> Plan a New Trip</h1>
+            <br></br>
             <AddTripForm onAddTrip={addTrip}></AddTripForm>
         </section>
     );

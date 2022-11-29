@@ -62,10 +62,11 @@ export default function AddTripForm({ onAddTrip }) {
                         <label htmlFor="startDate" className={classes.label} for="floatingInput">End Date</label>
                     </div>
                 </div>
-                <br></br><br></br><br></br><br></br>
+                <br></br>
                 <div class="col-auto">
                     <button class="btn btn-primary btn-lg">Start Planning</button>
                 </div>
+                <br></br><br></br><br></br>
             </Form>
         </>
     );
