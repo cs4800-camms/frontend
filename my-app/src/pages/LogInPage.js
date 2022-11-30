@@ -1,13 +1,8 @@
 import React  from 'react';
-import { useNavigate } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.min.css";
 import Login from '../components/user/Login';
-export default function LogIn(){
-    const navigate = useNavigate();
 
-    const navigateToTrips = () => {
-        navigate("/all-trips");
-    }
-    
+export default function LogIn() {
     return(
         <body>
             <br></br><br></br>
