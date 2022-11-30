@@ -12,20 +12,40 @@ export default function Landing() {
         navigate("/signup");
     }
     return (
-        <body>
-            <h1 className={classes.title}>Welcome to TrippyTravel</h1>
-            <br></br>
-            <div class="col-auto">
-                <img src={Logo} alt="Trippy Logo" />
-            </div>
+            <div class="container">
+            <div class="row align-items-center">
 
+            <div className="col">
             <br></br><br></br>
-
-            <div class="d-grid gap-4 col-1 mx-auto">
-                <button onClick={navigateToLogin} className={`btn btn-primary btn-lg ${classes.button}`} type="button">Login</button>
-                <button onClick={navigateToSignup} class="btn btn-primary btn-lg" type="button">Signup</button>
+                <h1 className={classes.title}>Welcome to</h1>
+                <h1 className={classes.bigtitle}>Trippy Travel</h1>
+                <br></br>
+                <h1 className={classes.subtitle}>Create your dream itinerary<br></br>to travel without the hassel!</h1>
+                <br></br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                        </div>
+                        <div class="col">
+                            <button onClick={navigateToLogin} className={`btn btn-primary btn-lg ${classes.button}`} type="button">Login</button>
+                        </div>
+                        <div class="col">
+                            <button onClick={navigateToSignup} class={`btn btn-primary btn-lg ${classes.button}`} type="button">Signup</button>
+                        </div>
+                        <div class="col">
+                        </div>
+                    </div>
+                </div>
             </div>
 
-        </body>
+            <div className="col">
+                <div class="col-auto">
+                    <img src={Logo} alt="Trippy Logo" />
+                </div>
+            </div>
+            </div>
+
+        </div>
+
     );
 }
