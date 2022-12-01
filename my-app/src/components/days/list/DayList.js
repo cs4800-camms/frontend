@@ -5,7 +5,7 @@ import DayItem from "../item/DayItem";
 import classes from "./DayList.module.css";
 import authHeader from '../../../services/auth-header';
 
-export default function DayList({dayList, setDayList, tripId, trip}) {
+export default function DayList({ dayList, setDayList, tripId, trip }) {
 
     //to calculate total days
     var startDate = moment(new Date(trip.startDate)).add(1, 'days')
@@ -22,10 +22,10 @@ export default function DayList({dayList, setDayList, tripId, trip}) {
         const dayInfo = dayList.length === 0 ? {
             trip_id: tripId,
             date: new Date(moment(new Date(trip.startDate)).add(1, 'days'))
-          } : {
+        } : {
             trip_id: tripId,
-            date: new Date(moment(new Date(dayList[dayList.length-1].date)).add(1, 'days'))
-          }
+            date: new Date(moment(new Date(dayList[dayList.length - 1].date)).add(1, 'days'))
+        }
         console.log(dayInfo);
 
         await axios.post(`/days/create`, dayInfo, { headers: authHeader() })
@@ -40,7 +40,7 @@ export default function DayList({dayList, setDayList, tripId, trip}) {
 
     //checks whether to render the button or not
     let button;
-    if(dayList.length !== totalDays) {
+    if (dayList.length !== totalDays) {
         button = <button onClick={handleDayAdd} type="button" className="btn btn-primary btn-m">Add a day</button>;
     } else {
         button = <button hidden onClick={handleDayAdd} type="button" className="btn btn-primary btn-m">Add a day</button>;
@@ -50,7 +50,7 @@ export default function DayList({dayList, setDayList, tripId, trip}) {
         <div>
             <div className={`accordion ${classes.dayHeader}`} id="accordionPanelsStayOpenExample">
                 {dayList.map((day, index) => (
-                    <DayItem day={day} tripId={tripId}/>
+                    <DayItem day={day} tripId={tripId} />
                 ))}
             </div>
             <br></br>

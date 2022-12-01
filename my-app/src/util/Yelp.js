@@ -5,14 +5,12 @@ const yelp = {
         return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}`, {
             headers: {
                 Authorization: `Bearer ${apiKey}`,
-            },
-
+            }
         }).then((response) => {
-
             return response.json();
-        }).then((jsonResponse) =>  {
-            if(jsonResponse.businesses) {
-                return jsonResponse.businesses.map((business) =>{
+        }).then((jsonResponse) => {
+            if (jsonResponse.businesses) {
+                return jsonResponse.businesses.map((business) => {
                     console.log(business);
                     return {
                         id: business.id,

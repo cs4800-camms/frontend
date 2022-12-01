@@ -21,16 +21,15 @@ export default function TripList({ tripList, setTripList }) {
     return (
         <>
             <div className="text-center">
-                <h2 style={{fontSize: "40px"}}> Your Trips </h2>
+                <h2 style={{ fontSize: "40px" }}> Your Trips </h2>
             </div>
             <div className="container">
                 <div className="row">
                     {tripList.map(trip => (
-                        <div className="col-sm-4">
+                        <div className="col-xs-12 col-sm-6 col-lg-4">
                             <TripItem
                                 key={trip._id}
                                 _id={trip._id}
-    //                            image={trip.image}
                                 name={trip.name}
                                 destination={trip.destination}
                                 startDate={trip.startDate}

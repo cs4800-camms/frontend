@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import classes from "./NavBar.module.css";
-import Logo from "./NavLogo.svg"
+import Logo from "./NavLogo.png"
 import { useNavigate } from 'react-router-dom';
 import AuthService from '../../services/auth.service';
 

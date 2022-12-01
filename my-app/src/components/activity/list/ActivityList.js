@@ -2,6 +2,7 @@ import axios from "axios";
 import ActivityItem from "../item/ActivityItem";
 import { useState } from "react";
 import classes from "./ActivityList.module.css";
+import { Form } from "react-bootstrap";
 import authHeader from '../../../services/auth-header';
 
 export default function ActivityList({ activityList, setActivityList, dayId, tripId }) {
@@ -52,9 +53,10 @@ export default function ActivityList({ activityList, setActivityList, dayId, tri
                     </div>
                 ))}
             </ul>
-
-            <input type="text" class="form-control" id="floatingInput" placeholder="Activity name" onChange={(e) => setActivityInfo({ ...activityInfo, name: e.target.value })} value={activityInfo.name}/>
-            <button onClick={handleActivityAdd} type="button" className={`btn btn-primary ${classes.button}`} >Add Activity</button>
+            <Form onSubmit={handleActivityAdd}>
+                <input type="text" class="form-control" id="floatingInput" placeholder="Activity name" onChange={(e) => setActivityInfo({ ...activityInfo, name: e.target.value })} value={activityInfo.name} required />
+                <button className={`btn btn-primary ${classes.button}`} >Add Activity</button>
+            </Form>
         </div>
     );
 }

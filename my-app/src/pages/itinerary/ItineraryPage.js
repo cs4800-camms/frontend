@@ -83,7 +83,7 @@ export default function ItineraryPage() {
                     <h2>Itinerary</h2>
                     <DayList dayList={dayList} setDayList={setDayList} tripId={tripId} trip={trip}/>
                 </div>
-                <div className="col">
+                <div className="col justify-content-center">
                     <h2>Activity Suggestions</h2>
                     <SearchBar searchYelp={searchYelp}></SearchBar>
                     <YelpList businesses={businesses}></YelpList>
