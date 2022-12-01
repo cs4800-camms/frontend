@@ -20,7 +20,7 @@ export default function AllTripsPage() {
 
     useEffect(() => {
         setIsLoading(true);
-        axios.get(/trips/active)
+        axios.get(`/trips/active`)
             .then((res) => {
                 console.log(res);
                 return res.data;
@@ -49,7 +49,7 @@ export default function AllTripsPage() {
                 <TripList tripList={tripList} setTripList={setTripList}></TripList>
                 <br></br><br></br><br></br>
                 <div className="text-center">
-                    <button onClick={navigateToAdd} type="button" className={btn btn-primary btn-lg ${classes.button}}>Plan new trip</button>
+                    <button onClick={navigateToAdd} type="button" className={`btn btn-primary btn-lg ${classes.button}`}>Plan trip</button>
                 </div>
             </>
         </Fragment>

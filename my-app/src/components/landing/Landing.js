@@ -19,7 +19,7 @@ export default function Landing() {
                 <img src={Logo} alt="Trippy Logo" />
             </div>
 
-            <br></br><br></br>
+ 
 
             <div class="d-grid gap-4 col-1 mx-auto">
                 <button onClick={navigateToLogin} className={`btn btn-primary btn-lg ${classes.button}`} type="button">Login</button>
