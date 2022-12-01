@@ -13,6 +13,7 @@ export default function Login() {
         password: ""
     });
     const [passwordShown, setPasswordShown] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     const togglePassword = () => {
         setPasswordShown(!passwordShown);
@@ -27,12 +28,11 @@ export default function Login() {
                   localStorage.setItem("user", JSON.stringify(response.data));
                 }
                 console.log(response.data);
+                navigate("/all-trips");
             })
             .catch(function (error) {
-                console.log(error);
+                setErrorMessage("Unauthorized: Bad Credentials");
             });
-
-        navigate("/all-trips");
     }
 
     return (
@@ -57,9 +57,15 @@ export default function Login() {
                             </div>
                             <div class="col-auto">
                                 <button class="btn btn-primary btn-lg">Login</button>
-
                             </div>
-                            <br></br><br></br>
+                            <br></br>
+                            {errorMessage ? (
+                                <div className="form-group">
+                                    <div className="alert alert-danger" role="alert">
+                                        {errorMessage}
+                                    </div>
+                                </div>
+                            ) : <div></div>}
                             <p> Don't have an account? <a class href="/signup">Create one here </a></p>
                         </Form>
                     </div>

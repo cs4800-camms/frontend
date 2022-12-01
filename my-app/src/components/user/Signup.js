@@ -17,6 +17,7 @@ export default function Signup() {
         password: ""
     });
     const [passwordShown, setPasswordShown] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     const togglePassword = () => {
         setPasswordShown(!passwordShown);
@@ -28,12 +29,12 @@ export default function Signup() {
         await axios.post(`/auth/signup`, userInfo)
             .then(function (response) {
                 console.log(response.data.message);
+                navigate("/login");
             })
             .catch(function (error) {
-                console.log(error);
+                console.log(error.response.data);
+                setErrorMessage(error.response.data.message);
             });
-
-        navigate("/login");
     }
 
     return (
@@ -64,13 +65,20 @@ export default function Signup() {
                             <div className={`form-floating mb-4 ${classes.control} ${classes.inputWithButton}`}>
                                 <input type={passwordShown ? "text" : "password"} id="floatingInput" class="form-control"
                                     placeholder="Enter password" onChange={(e) => setUserInfo({ ...userInfo, password: e.target.value })} value={userInfo.password} required />
-                                { passwordShown ? <i className="bi bi-eye-slash" onClick={togglePassword}></i> :<i className="bi bi-eye" onClick={togglePassword}></i>}
+                                { passwordShown ? <i className="bi bi-eye-slash" onClick={togglePassword}></i> : <i className="bi bi-eye" onClick={togglePassword}></i>}
                                 <label class="form-label" for="floatingInput">Password</label>
                             </div>
                             <div class="col-auto">
                                 <button class="btn btn-primary btn-lg">Signup</button>
                             </div>
-                            <br></br><br></br>
+                            <br></br>
+                            {errorMessage ? (
+                                <div className="form-group">
+                                    <div className="alert alert-danger" role="alert">
+                                        {errorMessage}
+                                    </div>
+                                </div>
+                            ) : <div></div>}
                         </Form>
                     </div>
                 </div>
