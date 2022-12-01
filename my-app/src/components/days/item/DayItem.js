@@ -43,7 +43,7 @@ export default function DayItem({ day, tripId }) {
                         {moment(day.date).format("dddd, MMMM Do")}</button>
                 </h2>
 
-                <div id={id} class="accordion-collapse collapse show" aria-labelledby="headingOne">
+                <div id={id} class="accordion-collapse collapse" aria-labelledby="headingOne">
                     <div class="accordion-body">
                         <ActivityList dayId={day._id} activityList={activityList} setActivityList={setActivityList}  tripId={tripId}></ActivityList>
                     </div>
