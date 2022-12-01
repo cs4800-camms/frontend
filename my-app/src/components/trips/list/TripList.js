@@ -16,6 +16,22 @@ export default function TripList({ tripList, setTripList }) {
             .catch(function (error) {
                 console.log(error);
             });
+
+        axios.delete(`/days/${id}/delete-by-trip`, { headers: authHeader() })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        axios.delete(`/activities/${id}/delete-by-trip`, { headers: authHeader() })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     return (

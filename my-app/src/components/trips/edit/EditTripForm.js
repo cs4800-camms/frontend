@@ -82,6 +82,5 @@ export default function EditTripForm({ onEditTrip }) {
                 </div>
             </div>
         </>
-
     );
 }

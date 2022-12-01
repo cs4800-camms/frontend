@@ -6,10 +6,9 @@ export default function ActivityItem({ activity, remove }) {
                 <div class="d-flex align-items-center">
                     <div class="row">
                     <a href="#!" data-mdb-toggle="tooltip" title="Remove item">
-                                  <i class="fas fa-times text-primary"></i>
+                        <i class="fas fa-times text-primary"></i>
                     </a>
-
-                        <p>{activity.name}</p>
+                    <p>{activity.name}</p>
                     </div>
                 </div>
                 <i onClick={() => remove(activity._id)} class="bi bi-x"></i>
