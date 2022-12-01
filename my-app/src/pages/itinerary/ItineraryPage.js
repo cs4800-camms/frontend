@@ -7,6 +7,9 @@ import GlobalContext from '../../context/global';
 import yelp from '../../util/Yelp';
 import YelpList from '../../components/yelp/list/YelpList';
 import SearchBar from '../../components/search/SearchBar';
+import Navbar from '../../components/ui/NavBar';
+
+
 import authHeader from '../../services/auth-header';
 
 
@@ -74,7 +77,9 @@ export default function ItineraryPage() {
     }
 
     return (
-        <body style={{padding: "2%"}}>
+        <body>
+            <Navbar></Navbar>
+            <br></br>
             <h1>Plan Your {trip.name}</h1>
             <h4>{trip.destination}</h4>
             <br></br><br></br>
