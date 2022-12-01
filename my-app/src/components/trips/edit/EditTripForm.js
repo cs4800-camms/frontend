@@ -73,7 +73,7 @@ export default function EditTripForm({ onEditTrip }) {
                                     </div>
                                 </div>
                             </div>
-                            <br></br><br></br><br></br><br></br>
+                            <br></br>
                             <div class="col-auto">
                                 <button class="btn btn-primary btn-lg">Start Planning</button>
                             </div>

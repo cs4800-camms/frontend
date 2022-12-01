@@ -43,7 +43,7 @@ export default function Signup() {
                 <div className={`card px-4 py-4 ${classes.card}`}  >
                     <div class="card-body">
                         <h5 className={`card-title mb-3 ${classes.title}`}>We are TrippyTravel</h5>
-                        <br></br><br></br>
+                        <br></br>
                         <Form className={classes.form} onSubmit={handleSubmit}>
                             <p>Please create your account</p>
                             <br></br>
@@ -54,7 +54,6 @@ export default function Signup() {
                                         <label class="form-label" for="floatingInput">First name</label>
                                     </div>
                                 </div>
-
                                 <div class="col">
                                     <div className={`form-floating mb-4 ${classes.control}`}>
                                         <input type="text" id="floatingInput" class="form-control" placeholder="Doe" onChange={(e) => setUserInfo({ ...userInfo, lastName: e.target.value })} value={userInfo.lastName} required />
@@ -66,19 +65,17 @@ export default function Signup() {
                                 <input type="email" id="floatingInput" class="form-control" placeholder="jdoe@gmail.com" onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })} value={userInfo.email} required />
                                 <label class="form-label" for="floatingInput">Email</label>
                             </div>
-                            <br></br>
                             <div className={`form-floating mb-4 ${classes.control}`}>
                                 <input type="text" id="floatingInput" class="form-control" placeholder="jane_doe" onChange={(e) => setUserInfo({ ...userInfo, username: e.target.value })} value={userInfo.username} required />
                                 <label class="form-label" for="floatingInput">Username</label>
                             </div>
-                            <br></br>
                             <div className={`form-floating mb-4 ${classes.control} ${classes.inputWithButton}`}>
                                 <input type={passwordShown ? "text" : "password"} id="floatingInput" class="form-control"
                                     placeholder="Enter password" onChange={(e) => setUserInfo({ ...userInfo, password: e.target.value })} value={userInfo.password} required />
                                 {passwordShown ? <i className="bi bi-eye-slash" onClick={togglePassword}></i> : <i className="bi bi-eye" onClick={togglePassword}></i>}
                                 <label class="form-label" for="floatingInput">Password</label>
                             </div>
-                            <br></br><br></br><br></br>
+                            <br></br>
 
                             <div class="col-auto">
                                 <button class="btn btn-primary btn-lg">Signup</button>
