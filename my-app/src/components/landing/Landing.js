@@ -12,11 +12,12 @@ export default function Landing() {
         navigate("/signup");
     }
     return (
-            <div class="container">
+            <div className={`container ${classes.titlecard}`}>
             <div class="row align-items-center">
-
-            <div className="col">
-            <br></br><br></br>
+            <div class="col-auto align-center">
+            <br></br>
+            <br></br>
+            <br></br>
                 <h1 className={classes.title}>Welcome to</h1>
                 <h1 className={classes.bigtitle}>Trippy Travel</h1>
                 <br></br>
@@ -38,13 +39,11 @@ export default function Landing() {
                 </div>
             </div>
 
-            <div className="col">
-                <div class="col-auto">
-                    <img src={Logo} alt="Trippy Logo" />
-                </div>
+            <div class="col">
+                    <img src={Logo} style={{width: "400px"}} alt="Trippy Logo" />
             </div>
             </div>
-        </div>
+            </div>
 
     );
 }
