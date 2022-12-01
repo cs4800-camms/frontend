@@ -38,6 +38,8 @@ export default function ActivityList({ activityList, setActivityList, dayId, tri
             .then(function (response) {
                 console.log(response);
                 addActivity(response.data);
+                setActivityInfo({day_id: dayId, trip_id: tripId, name:"", checked:false});
+
             })
             .catch(function (error) {
                 console.log(error);

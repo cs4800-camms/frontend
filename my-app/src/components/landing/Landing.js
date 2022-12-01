@@ -38,12 +38,10 @@ export default function Landing() {
                     </div>
                 </div>
             </div>
-
             <div class="col">
                     <img src={Logo} style={{width: "400px"}} alt="Trippy Logo" />
             </div>
             </div>
             </div>
-
     );
 }
