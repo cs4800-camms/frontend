@@ -2,6 +2,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from 'axios';
 import moment from 'moment';
 import DayItem from "../item/DayItem";
+import classes from "./DayList.module.css";
+import authHeader from '../../../services/auth-header';
 
 export default function DayList({dayList, setDayList, tripId, trip}) {
 
@@ -26,7 +28,7 @@ export default function DayList({dayList, setDayList, tripId, trip}) {
           }
         console.log(dayInfo);
 
-        await axios.post(`/days/create`, dayInfo)
+        await axios.post(`/days/create`, dayInfo, { headers: authHeader() })
         .then(function (response) {
             console.log(response);
             addDay(response.data);
@@ -46,11 +48,12 @@ export default function DayList({dayList, setDayList, tripId, trip}) {
 
     return (
         <div>
-            <div className="accordion" id="accordionPanelsStayOpenExample">
+            <div className={`accordion ${classes.dayHeader}`} id="accordionPanelsStayOpenExample">
                 {dayList.map((day, index) => (
                     <DayItem day={day} tripId={tripId}/>
                 ))}
             </div>
+            <br></br>
             {button}
         </div>
     );

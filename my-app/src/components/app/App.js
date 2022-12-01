@@ -8,6 +8,7 @@ import GlobalContext from "../../context/global"
 import LogInPage from "../../pages/LogInPage"
 import LandingPage from "../../pages/LandingPage"
 import SignUpPage from "../../pages/SignUpPage";
+import PrivateRoute from "../../pages/private-route/PrivateRoute";
 
 export default function App() {
     const [tripList, setTripList] = useState([]);
@@ -21,21 +22,19 @@ export default function App() {
             dayList,
             setDayList,
             activityList,
-            setActivityList
+            setActivityList,
         }}>
             <div className="App">
                 <BrowserRouter>
                     <Routes>
                         <Route path='/' element={<LandingPage />}></Route>
-                        <Route path='/all-trips' element={<AllTripsPage />}></Route>
-                        <Route path='/add-trip' element={<AddTripPage />}></Route>
-                        <Route path='/itinerary/:tripId' element={<ItineraryPage />}></Route>
-                        <Route path='/edit' element={<EditTripPage />}></Route>
+                        <Route path='/all-trips' element={<PrivateRoute><AllTripsPage /></PrivateRoute>}></Route>
+                        <Route path='/add-trip' element={<PrivateRoute><AddTripPage /></PrivateRoute>}></Route>
+                        <Route path='/itinerary/:tripId' element={ <PrivateRoute><ItineraryPage /></PrivateRoute>}></Route>
+                        <Route path='/edit' element={<PrivateRoute><EditTripPage /></PrivateRoute>}></Route>
                         <Route path='/login' element={<LogInPage />}></Route>
                         <Route path='/signup' element={<SignUpPage />}></Route>
                         <Route path='/landing' element={<LandingPage />}></Route>
-                        
-
                     </Routes>
                 </BrowserRouter>
             </div>
