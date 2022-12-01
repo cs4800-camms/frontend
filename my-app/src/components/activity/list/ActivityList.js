@@ -2,14 +2,14 @@ import axios from "axios";
 import ActivityItem from "../item/ActivityItem";
 import { useState } from "react";
 import classes from "./ActivityList.module.css";
+import { Form } from "react-bootstrap";
+import authHeader from '../../../services/auth-header';
 
 export default function ActivityList({ activityList, setActivityList, dayId, tripId }) {
     const [activityInfo, setActivityInfo] = useState({
-        _id: "1",
         day_id: dayId,
         trip_id: tripId,
         name: "",
-        location: "Sad land",
         checked: false,
     });
 
@@ -21,7 +21,7 @@ export default function ActivityList({ activityList, setActivityList, dayId, tri
         e.preventDefault();
         console.log(activityInfo);
 
-        await axios.post(`/activities/create`, activityInfo)
+        await axios.post(`/activities/create`, activityInfo, { headers: authHeader() })
             .then(function (response) {
                 console.log(response);
                 addActivity(response.data);
@@ -35,7 +35,7 @@ export default function ActivityList({ activityList, setActivityList, dayId, tri
         const newActivityList = activityList.filter((activity) => activity._id !== id);
         setActivityList(newActivityList)
 
-        axios.delete(`/activities/${id}`)
+        axios.delete(`/activities/${id}`, { headers: authHeader() })
             .then(function (response) {
                 console.log(response);
             })
@@ -53,9 +53,10 @@ export default function ActivityList({ activityList, setActivityList, dayId, tri
                     </div>
                 ))}
             </ul>
-
-            <input type="text" class="form-control" id="floatingInput" placeholder="Activity name" onChange={(e) => setActivityInfo({ ...activityInfo, name: e.target.value })} value={activityInfo.name} />
-            <button onClick={handleActivityAdd} type="button" className={`btn btn-primary ${classes.button}`} >Add Activity</button>
+            <Form onSubmit={handleActivityAdd}>
+                <input type="text" class="form-control" id="floatingInput" placeholder="Activity name" onChange={(e) => setActivityInfo({ ...activityInfo, name: e.target.value })} value={activityInfo.name} required />
+                <button className={`btn btn-primary ${classes.button}`} >Add Activity</button>
+            </Form>
         </div>
     );
 }

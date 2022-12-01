@@ -2,7 +2,6 @@ import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import classes from "./SearchBar.module.css";
 
-
 export default function SearchBar({ searchYelp }) {
     const [searchInfo, setSearchInfo] = useState({
         term: "",

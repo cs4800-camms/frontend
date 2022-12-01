@@ -6,9 +6,10 @@ import GlobalContext from '../../context/global'
 import axios from 'axios';
 import Navbar from '../../components/ui/NavBar';
 import classes from "./AllTripsPage.module.css"
+import authHeader from '../../services/auth-header';
+import AuthService from '../../services/auth.service';
 
 export default function AllTripsPage() {
-
     const navigate = useNavigate();
 
     const navigateToAdd = () => {
@@ -18,9 +19,12 @@ export default function AllTripsPage() {
     const [isLoading, setIsLoading] = useState(true);
     const { tripList, setTripList } = useContext(GlobalContext);
 
+    const user = AuthService.getCurrentUser();
+
+    //calls the endpoint to display trips based on user id
     useEffect(() => {
         setIsLoading(true);
-        axios.get(`/trips/active`)
+        axios.get(`/trips/${user.id}`, { headers: authHeader() })
             .then((res) => {
                 console.log(res);
                 return res.data;
@@ -30,7 +34,7 @@ export default function AllTripsPage() {
                 console.log(trips);
                 setTripList(trips);
             });
-    }, [setTripList]);
+    }, [setTripList, user.id]);
 
     if(isLoading) {
         return (

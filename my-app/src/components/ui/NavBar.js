@@ -2,24 +2,26 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import classes from "./NavBar.module.css";
 import Logo from "./NavLogo.png"
 import { useNavigate } from 'react-router-dom';
+import AuthService from '../../services/auth.service';
 
 export default function NavBar() {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-    const navigateToTrips = () => {
+    const logout = () => {
+        AuthService.logout();
         navigate("/landing");
     }
+
+    const navigateToHome = () => {
+        navigate("/all-trips");
+    }
+
     return (
         <nav className={`navbar navbar-expand-lg bg-light ${classes.nav}`}>
-        <div class="container">
-          <img id ="logo-img" style={{width: "200px"}} className={`navbar-brand ${classes.logo}`} src={Logo} alt="..."/>
-          
-              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <button class="btn btn-primary btn-m" onClick={navigateToTrips} type="Log out"><i class="bi bi-box-arrow-right"></i>  Log out</button>
-                </li>
-              </ul>
-        </div>
-      </nav>
+            <div class="container">
+                <img style={{width: "200px"}} className={`navbar-brand ${classes.logo}`} onClick={navigateToHome} src={Logo} alt="..."/>
+                <button class="btn btn-primary btn-m" onClick={logout} type="Log out"><i class="bi bi-box-arrow-right"></i> Log out</button>
+            </div>
+        </nav>
     );
 }

@@ -5,17 +5,20 @@ import Form from 'react-bootstrap/Form';
 import { useState, useContext } from "react";
 import GlobalContext from '../../../context/global';
 import axios from 'axios';
+import AuthService from '../../../services/auth.service';
+import authHeader from '../../../services/auth-header';
 
 export default function AddTripForm({ onAddTrip }) {
+    const { setTripList } = useContext(GlobalContext);
+    const user = AuthService.getCurrentUser();
+
     const [tripInfo, setTripInfo] = useState({
-        userId: 1,
+        user_id: user.id,
         name: "",
         destination: "",
         startDate: new Date(),
         endDate: new Date(),
     });
-
-    const { setTripList } = useContext(GlobalContext);
 
     const addTrip = (newTrip) => {
         setTripList((oldTrips) => [newTrip, ...oldTrips]);
@@ -24,7 +27,7 @@ export default function AddTripForm({ onAddTrip }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await axios.post(`/trips/create`, tripInfo)
+        await axios.post(`/trips/create`, tripInfo, { headers: authHeader() })
             .then(function (response) {
                 console.log(response);
                 addTrip(response.data);
@@ -67,7 +70,7 @@ export default function AddTripForm({ onAddTrip }) {
                                     </div>
                                 </div>
                             </div>
-                            <br></br><br></br><br></br><br></br>
+                            <br></br>
                             <div class="col-auto">
                                 <button class="btn btn-primary btn-lg">Start Planning</button>
                             </div>
