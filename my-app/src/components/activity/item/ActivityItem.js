@@ -8,9 +8,8 @@ export default function ActivityItem({ activity, remove, check }) {
                 <div class="form-check d-flex align-items-center">
                     <div class="row">
                         <a href="#!" data-mdb-toggle="tooltip" title="Remove item">
-                        <i class="fas fa-times text-primary"></i>
+                            <i class="fas fa-times text-primary"></i>
                         </a>
-
                         <div class="form-check active">
                         <input class="form-check-input" name="checked" type="checkbox" checked={activity.checked} onChange={() => check(activity._id)} />
                         <label class="form-check-label" for="flexCheckDefault">
