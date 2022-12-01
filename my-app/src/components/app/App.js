@@ -22,7 +22,7 @@ export default function App() {
             setDayList,
             activityList,
             setActivityList,
-        
+
         }}>
             <div className="App">
                 <BrowserRouter>
@@ -35,8 +35,6 @@ export default function App() {
                         <Route path='/login' element={<LogInPage />}></Route>
                         <Route path='/signup' element={<SignUpPage />}></Route>
                         <Route path='/landing' element={<LandingPage />}></Route>
-                        
-
                     </Routes>
                 </BrowserRouter>
             </div>

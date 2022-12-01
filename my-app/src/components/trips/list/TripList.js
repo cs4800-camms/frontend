@@ -24,7 +24,7 @@ export default function TripList({ tripList, setTripList }) {
             <div className="container">
                         <div className="row">
                             {tripList.map(trip => (
-                                <div className="col-sm-4">
+                                <div className="col-xs-12 col-sm-6 col-lg-4">
                                     <TripItem
                                         key={trip._id}
                                         _id={trip._id}

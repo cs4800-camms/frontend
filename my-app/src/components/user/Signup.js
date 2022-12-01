@@ -12,34 +12,42 @@ export default function Login() {
     return (
         <>
             <div class="container mt-4 mb-4 d-flex justify-content-center">
-                <div className={`card px-5 py-5 ${classes.card}`}  >
+                <div className={`card px-4 py-4 ${classes.card}`}  >
                     <div class="card-body">
                         <h5 className={`card-title mb-3 ${classes.title}`}>We are TrippyTravel</h5>
-                        <br></br>
+                        <br></br><br></br>
                         <Form className={classes.form}>
                             <p>Please create your account</p>
-                            <div className={`form-floating mb-4 ${classes.control}`}>
-                                <input type="text" id="floatingInput" class="form-control" placeholder="e.g My trip #1" required />
-                                <label class="form-label" for="floatingInput">First name</label>
+                            <br></br>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div className={`form-floating mb-4 ${classes.control}`}>
+                                        <input type="text" id="floatingInput" class="form-control" placeholder="Enter first name" required />
+                                        <label class="form-label" for="floatingInput">First name</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div className={`form-floating mb-4 ${classes.control}`}>
+                                        <input type="text" id="floatingInput" class="form-control" placeholder="Enter last name" required />
+                                        <label class="form-label" for="floatingInput">Last name</label>
+                                    </div>
+                                </div>
                             </div>
                             <div className={`form-floating mb-4 ${classes.control}`}>
-                                <input type="text" id="floatingInput" class="form-control" placeholder="e.g My trip #1" required />
-                                <label class="form-label" for="floatingInput">Last name</label>
-                            </div>
-                            <div className={`form-floating mb-4 ${classes.control}`}>
-                                <input type="text" id="floatingInput" class="form-control" placeholder="e.g My trip #1" required />
+                                <input type="text" id="floatingInput" class="form-control" placeholder="Enter valid email" required />
                                 <label class="form-label" for="floatingInput">Email</label>
                             </div>
-
+                            <br></br>
                             <div className={`form-floating mb-4 ${classes.control}`}>
-                                <input type="text" id="floatingInput" class="form-control" placeholder="Enter password" required />
+                                <input type="text" id="floatingInput" class="form-control" placeholder="Create a password" required />
                                 <label class="form-label" for="floatingInput">Create password</label>
                             </div>
-                            <div class="col-auto">
-                                <button onClick={navigateToTrips}class="btn btn-primary btn-lg">Signup</button>
+                            <br></br><br></br><br></br>
 
+
+                            <div class="col-auto">
+                                <button onClick={navigateToTrips} class="btn btn-primary btn-lg">Signup</button>
                             </div>
-                            <br></br><br></br>
                         </Form>
                     </div>
                 </div>

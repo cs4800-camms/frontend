@@ -1,6 +1,5 @@
 import moment from 'moment';
 import uniqid from 'uniqid';
-
 import { useState, useEffect } from 'react';
 import ActivityList from '../../activity/list/ActivityList';
 import axios from 'axios';
