@@ -14,6 +14,7 @@ export default function App() {
     const [tripList, setTripList] = useState([]);
     const [dayList, setDayList] = useState([]);
     const [activityList, setActivityList] = useState([]);
+    const [businesses, setBusinesses] = useState([]);
 
     return (
         <GlobalContext.Provider value={{
@@ -23,6 +24,8 @@ export default function App() {
             setDayList,
             activityList,
             setActivityList,
+            businesses,
+            setBusinesses
         }}>
             <div className="App">
                 <BrowserRouter>
