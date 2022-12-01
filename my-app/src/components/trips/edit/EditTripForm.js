@@ -6,19 +6,22 @@ import { useState, useContext } from "react";
 import GlobalContext from '../../../context/global';
 import axios from 'axios';
 import { useLocation } from "react-router-dom";
+import authHeader from '../../../services/auth-header';
+import AuthService from '../../../services/auth.service';
 
 export default function EditTripForm({ onEditTrip }) {
     const location = useLocation();
+    const { setTripList } = useContext(GlobalContext);
+
+    const user = AuthService.getCurrentUser();
 
     const [tripInfo, setTripInfo] = useState({
-        userId: 1,
+        user_id: user.id,
         name: location.state.name,
         destination: location.state.destination,
         startDate: location.state.startDate.substring(0, 10),
         endDate: location.state.endDate.substring(0, 10),
     });
-
-    const { setTripList } = useContext(GlobalContext);
 
     const updateTrip = (updatedTrip) => {
         setTripList(oldTrips => oldTrips.map(oldTrip => oldTrip._id === updatedTrip._id ? updatedTrip : oldTrip));
@@ -27,7 +30,7 @@ export default function EditTripForm({ onEditTrip }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await axios.put(`/trips/${location.state._id}/update`, tripInfo)
+        await axios.put(`/trips/${location.state._id}/update`, tripInfo, { headers: authHeader() })
             .then(function (response) {
                 console.log(response);
                 updateTrip(response.data);

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import ActivityList from '../../activity/list/ActivityList';
 import axios from 'axios';
 import classes from "./DayItem.module.css"
+import authHeader from '../../../services/auth-header';
 
 export default function DayItem({ day, tripId }) {
     const [activityList, setActivityList] = useState([]);
@@ -13,7 +14,7 @@ export default function DayItem({ day, tripId }) {
     //gets activities for the trip
     useEffect(() => {
         setIsLoading(true);
-        axios.get(`/activities/${day._id}`)
+        axios.get(`/activities/${day._id}`, { headers: authHeader() })
             .then((res) => {
                 console.log(day._id)
                 return res?.data;
@@ -24,6 +25,14 @@ export default function DayItem({ day, tripId }) {
                 setActivityList(activities);
             });
     }, [setActivityList, day._id]);
+
+    if(isLoading) {
+        return (
+            <section>
+                <p>Loading...</p>
+            </section>
+        );
+    }
 
     return (
         <div key={day._id} >

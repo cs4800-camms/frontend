@@ -19,3 +19,18 @@ body {
 input[type="date"]::-webkit-calendar-picker-indicator:hover {
     cursor: pointer;
 }
+
+.inputWithButton {
+  position: relative;
+}
+
+.inputWithButton i {
+  position: absolute;
+  right: 13px;
+  top : 16px;
+  font-size: 17px;
+}
+
+.inputWithButton i:hover {
+  cursor: pointer;
+}
