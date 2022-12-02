@@ -8,6 +8,7 @@
 .cardImg {
     max-height: 200px;
     overflow: hidden;
+    object-fit: cover;
 }
 
 a {
