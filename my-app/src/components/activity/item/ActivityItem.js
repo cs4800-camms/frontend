@@ -1,3 +1,4 @@
+import classes from "./ActivityItem.module.css";
 export default function ActivityItem({ activity, remove }) {
     return (
         <div key={activity._id}>
@@ -12,7 +13,7 @@ export default function ActivityItem({ activity, remove }) {
                         <p>{activity.name}</p>
                     </div>
                 </div>
-                <i onClick={() => remove(activity._id)} class="bi bi-x"></i>
+                <i onClick={() => remove(activity._id)} className={`bi bi-x ${classes.remove}`} ></i>
             </li>
         </div>
     );

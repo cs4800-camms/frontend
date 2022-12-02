@@ -57,7 +57,7 @@ export default function ActivityList({ activityList, setActivityList, dayId, tri
             </ul>
             <Form onSubmit={handleActivityAdd}>
                 <input type="text" class="form-control" id="floatingInput" placeholder="Activity name" onChange={(e) => setActivityInfo({ ...activityInfo, name: e.target.value })} value={activityInfo.name} required />
-                <button className={`btn btn-primary ${classes.button}`} >Add Activity</button>
+                <button className={`btn btn-primary ${classes.button}`}><i class="bi bi-plus-lg"></i> Add Activity</button>
             </Form>
         </div>
     );
