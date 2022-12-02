@@ -17,19 +17,6 @@ export default function ActivityList({ activityList, setActivityList, dayId, tri
         setActivityList((oldActivities) => [...oldActivities, newActivity]);
     }
 
-    function toggleCheck(id) {
-        setActivityInfo({...activityInfo, checked: !activityInfo.checked})
-
-        axios.put(`/activities/${id}/update`, activityInfo, { headers: authHeader() })
-            .then(function (response) {
-                console.log(response);
-                setActivityList(oldActivities => oldActivities.map(oldActivity => oldActivity._id === response.data._id ? response.data : oldActivity));
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-    }
-
     const handleActivityAdd = async (e) => {
         e.preventDefault();
         console.log(activityInfo);
@@ -64,11 +51,12 @@ export default function ActivityList({ activityList, setActivityList, dayId, tri
             <ul class="list-group mb-0">
                 {activityList.map((activity, index) => (
                     <div>
-                        <ActivityItem key={activity._id} activity={activity} remove={handleRemove} check={toggleCheck}/>
+                        <ActivityItem key={activity._id} activity={activity} remove={handleRemove} setActivityList={setActivityList} />
                     </div>
                 ))}
             </ul>
-            <Form onSubmit={handleActivityAdd}>
+            <hr/>
+            <Form onSubmit={handleActivityAdd} class={`${classes.form}`}>
                 <input type="text" class="form-control" id="floatingInput" placeholder="Activity name" onChange={(e) => setActivityInfo({ ...activityInfo, name: e.target.value })} value={activityInfo.name} required />
                 <button className={`btn btn-primary ${classes.button}`} >Add Activity</button>
             </Form>

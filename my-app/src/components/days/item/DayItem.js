@@ -16,12 +16,10 @@ export default function DayItem({ day, tripId }) {
         setIsLoading(true);
         axios.get(`/activities/${day._id}`, { headers: authHeader() })
             .then((res) => {
-                console.log(day._id)
                 return res?.data;
             })
             .then((activities) => {
                 setIsLoading(false);
-                console.log(activities);
                 setActivityList(activities);
             });
     }, [setActivityList, day._id]);
