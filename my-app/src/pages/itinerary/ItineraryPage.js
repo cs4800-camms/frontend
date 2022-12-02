@@ -8,6 +8,7 @@ import YelpList from '../../components/yelp/list/YelpList';
 import SearchBar from '../../components/search/SearchBar';
 import Navbar from '../../components/ui/NavBar';
 import authHeader from '../../services/auth-header';
+import classes from "./ItineraryPage.module.css"
 
 export default function ItineraryPage() {
    
@@ -62,14 +63,13 @@ export default function ItineraryPage() {
             <br></br>
             <h1>Plan Your {trip.name}</h1>
             <h4>{trip.destination}</h4>
-            <br></br><br></br>
-            <div class="row">
-                <div className="col">
-                    <h2>Itinerary</h2>
+            <div className="row">
+                <div className="col-xs-12 col-lg-6">
+                    <h2 className={`${classes.title}`}>Itinerary</h2>
                     <DayList dayList={dayList} setDayList={setDayList} tripId={tripId} trip={trip}/>
                 </div>
-                <div className="col">
-                    <h2>Activity Suggestions</h2>
+                <div className="col-xs-12 col-lg-6">
+                    <h2 className={`${classes.title}`}>Activity Suggestions</h2>
                     <SearchBar ></SearchBar>
                     <YelpList ></YelpList>
                 </div>

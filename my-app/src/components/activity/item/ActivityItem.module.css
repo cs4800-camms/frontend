@@ -1,0 +1,15 @@
+.activity {
+    justify-content: space-between;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 0;
+}
+
+.name {
+    margin: 0;
+}
+
+.todo {
+    margin: 0;
+}
