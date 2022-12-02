@@ -9,7 +9,7 @@ export default function YelpItem({ business }) {
                 <a href={business.url} target="_blank">
                     <h3 class="card-title">{business.name}</h3>
                 </a>
-                <p class="card-text">{business.location.display_address[0]} <br/> {business.location.display_address[1]}</p>
+                <p class="card-text"><i class="bi bi-geo-alt"></i> {business.location.display_address[0]} <br/> {business.location.display_address[1]}</p>
                 <p class="card-text">Rating: {business.rating} <i class="bi bi-star-fill"></i> </p>
             </div>
         </div>

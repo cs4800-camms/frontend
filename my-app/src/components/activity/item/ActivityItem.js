@@ -60,7 +60,7 @@ export default function ActivityItem({ activity, remove, setActivityList}) {
                         </div>
                     </div>
                 </div>
-                <i onClick={() => remove(activity._id)} class="bi bi-x"></i>
+                <i onClick={() => remove(activity._id)} className={`bi bi-x ${classes.icon}`}></i>
             </li>
         </div>
     );
