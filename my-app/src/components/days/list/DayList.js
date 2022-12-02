@@ -48,11 +48,14 @@ export default function DayList({ dayList, setDayList, tripId, trip }) {
 
     return (
         <div>
-            <div className={`accordion ${classes.dayHeader}`} id="accordionPanelsStayOpenExample">
-                {dayList.map((day, index) => (
-                    <DayItem day={day} tripId={tripId} />
-                ))}
-            </div>
+            {dayList.length === 0 ?
+                <h5 style={{ color: "#462b17", marginTop: "40px"}}>Add a day to your trip!</h5> :
+                <div className={`accordion ${classes.dayHeader}`} id="accordionPanelsStayOpenExample">
+                    {dayList.map((day, index) => (
+                        <DayItem day={day} tripId={tripId} />
+                    ))}
+                </div>
+            }
             <br></br>
             {button}
         </div>
