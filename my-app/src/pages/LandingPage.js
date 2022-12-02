@@ -1,11 +1,13 @@
 import React  from 'react';
-
+import NavBar from "../components/ui/NavBar";
 import Landing from '../components/landing/Landing';
 
 export default function LandingPage(){
     return(
         <body>
-            <br></br><br></br>
+            <NavBar/>
+            <br/>
+            <br/>
             <Landing></Landing>
         </body>
     )
