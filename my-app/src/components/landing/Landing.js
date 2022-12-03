@@ -24,10 +24,10 @@ export default function Landing() {
                     <div class="container">
                         <div class="row">
                             <div class="col">
-                                <button onClick={navigateToLogin} className={`btn btn-primary btn-lg ${classes.button}`} type="button">Login</button>
+                                <button onClick={navigateToLogin} className={`btn btn-primary btn-lg ${classes.button}`} type="button">Sign In</button>
                             </div>
                             <div class="col">
-                                <button onClick={navigateToSignup} class={`btn btn-primary btn-lg ${classes.button}`} type="button">Signup</button>
+                                <button onClick={navigateToSignup} class={`btn btn-primary btn-lg ${classes.button}`} type="button">Sign Up</button>
                             </div>
                         </div>
                     </div>
