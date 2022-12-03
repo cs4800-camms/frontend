@@ -41,9 +41,9 @@ export default function DayList({ dayList, setDayList, tripId, trip }) {
     //checks whether to render the button or not
     let button;
     if (dayList.length !== totalDays) {
-        button = <button onClick={handleDayAdd} type="button" className="btn btn-primary btn-m"><i class="bi bi-plus-lg"></i> Add a day</button>;
+        button = <button onClick={handleDayAdd} type="button" className="btn btn-primary"><i class="bi bi-plus"></i> Add a day</button>;
     } else {
-        button = <button hidden onClick={handleDayAdd} type="button" className="btn btn-primary btn-m"><i class="bi bi-plus-lg"></i> Add a day</button>;
+        button = <button hidden onClick={handleDayAdd} type="button" className="btn btn-primary"><i class="bi bi-plus"></i> Add a day</button>;
     }
 
     return (
