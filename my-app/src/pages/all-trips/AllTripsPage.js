@@ -55,6 +55,8 @@ export default function AllTripsPage() {
                 <div className="text-center">
                     <button onClick={navigateToAdd} type="button" className={`btn btn-primary btn-lg ${classes.button}`} >Plan trip</button>
                 </div>
+                <br/>
+                <br/>
             </>
         </Fragment>
     );

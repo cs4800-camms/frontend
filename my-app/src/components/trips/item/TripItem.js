@@ -21,8 +21,8 @@ export default function TripItem(props) {
             <div className="btn-group" role="group">
                 <i id="btnGroupDrop1" type="icon" className={`btn btn-sm dropdown-toggle ${classes.button}`} data-bs-toggle="dropdown" aria-expanded="false"></i>
                 <ul className="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                    <li><a onClick={() => { toEditForm() }}  className="dropdown-item"><i class="bi bi-pencil fa-fw">&nbsp;</i>   Edit trip info </a> </li>
-                    <li><a onClick={() => props.handleRemove(props._id)} className="dropdown-item" href="#"> <i class="bi bi-trash">&nbsp;</i>   Delete trip</a></li>
+                    <li><a onClick={() => { toEditForm() }}  className="dropdown-item"><i class="bi bi-pencil fa-fw">&nbsp;</i> Edit trip info </a> </li>
+                    <li><a onClick={() => props.handleRemove(props._id)} className="dropdown-item" href="#"> <i class="bi bi-trash">&nbsp;</i> Delete trip</a></li>
                 </ul>
             </div>
         </div>

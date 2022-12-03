@@ -46,7 +46,7 @@ export default function Signup() {
                         <Form className={classes.form} onSubmit={handleSubmit}>
                             <p>Please create your account</p>
                             <br></br>
-                            <div class="row mb-4">
+                            <div class="row">
                                 <div class="col">
                                     <div className={`form-floating mb-4 ${classes.control}`}>
                                         <input type="text" id="floatingInput" class="form-control" placeholder="Jane" onChange={(e) => setUserInfo({ ...userInfo, firstName: e.target.value })} value={userInfo.firstName} required />
@@ -74,8 +74,6 @@ export default function Signup() {
                                 {passwordShown ? <i className="bi bi-eye-slash" onClick={togglePassword}></i> : <i className="bi bi-eye" onClick={togglePassword}></i>}
                                 <label class="form-label" for="floatingInput">Password</label>
                             </div>
-                            <br></br>
-
                             <div class="col-auto">
                                 <button class="btn btn-primary btn-lg">Join</button>
                             </div>
@@ -87,7 +85,7 @@ export default function Signup() {
                                     </div>
                                 </div>
                             ) : <div></div>}
-                            <p> Already have an account? <a class href="/login">Login here </a></p>
+                            <p> Already have an account? <a class href="/login">Sign in here </a></p>
                         </Form>
                     </div>
                 </div>
