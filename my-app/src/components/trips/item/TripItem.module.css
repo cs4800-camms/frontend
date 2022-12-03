@@ -25,3 +25,7 @@
     display:block;
     border:none;
 }
+
+.button:hover {
+    color: #E97777;
+}

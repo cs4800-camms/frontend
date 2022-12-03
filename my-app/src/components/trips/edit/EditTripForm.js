@@ -8,10 +8,12 @@ import axios from 'axios';
 import { useLocation } from "react-router-dom";
 import authHeader from '../../../services/auth-header';
 import AuthService from '../../../services/auth.service';
+import { useNavigate } from "react-router-dom";
 
-export default function EditTripForm({ onEditTrip }) {
+export default function EditTripForm() {
     const location = useLocation();
     const { setTripList } = useContext(GlobalContext);
+    const navigate = useNavigate();
 
     const user = AuthService.getCurrentUser();
 
@@ -34,12 +36,11 @@ export default function EditTripForm({ onEditTrip }) {
             .then(function (response) {
                 console.log(response);
                 updateTrip(response.data);
+                navigate(`/itinerary/${response.data._id}`);
             })
             .catch(function (error) {
                 console.log(error);
             });
-
-        onEditTrip(tripInfo);
     };
 
     return (
@@ -75,7 +76,7 @@ export default function EditTripForm({ onEditTrip }) {
                             </div>
                             <br></br>
                             <div class="col-auto">
-                                <button class="btn btn-primary btn-lg">Start Planning</button>
+                                <button class="btn btn-primary btn-lg">Finish Editing</button>
                             </div>
                         </Form>
                     </div>

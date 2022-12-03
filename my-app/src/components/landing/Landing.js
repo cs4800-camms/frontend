@@ -19,7 +19,7 @@ export default function Landing() {
                     <h1 className={classes.title}>Welcome to</h1>
                     <h1 className={classes.bigtitle}>Trippy Travel</h1>
                     <br></br>
-                    <h1 className={classes.subtitle}>Create your dream itinerary<br></br>to travel without the hassel!</h1>
+                    <h1 className={classes.subtitle}>Create your dream itinerary,<br></br>to travel without the hassle!</h1>
                     <br></br>
                     <div class="container">
                         <div class="row">

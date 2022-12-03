@@ -7,10 +7,12 @@ import GlobalContext from '../../../context/global';
 import axios from 'axios';
 import AuthService from '../../../services/auth.service';
 import authHeader from '../../../services/auth-header';
+import { useNavigate } from "react-router-dom";
 
-export default function AddTripForm({ onAddTrip }) {
+export default function AddTripForm() {
     const { setTripList } = useContext(GlobalContext);
     const user = AuthService.getCurrentUser();
+    const navigate = useNavigate();
 
     const [tripInfo, setTripInfo] = useState({
         user_id: user.id,
@@ -31,12 +33,11 @@ export default function AddTripForm({ onAddTrip }) {
             .then(function (response) {
                 console.log(response);
                 addTrip(response.data);
+                navigate(`/itinerary/${response.data._id}`);
             })
             .catch(function (error) {
                 console.log(error);
             });
-
-        onAddTrip(tripInfo); //navigates to home page
     };
 
     return (

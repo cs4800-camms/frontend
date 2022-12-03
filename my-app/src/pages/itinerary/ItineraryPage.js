@@ -63,7 +63,7 @@ export default function ItineraryPage() {
             <br></br>
             <h1>Plan Your {trip.name}</h1>
             <h4>{trip.destination}</h4>
-            <div className="row" style={{width: "98%"}}>
+            <div className="row" style={{margin:"auto"}}>
                 <div className="col-xs-12 col-lg-6" style={{padding: "0"}}>
                     <h2 className={`${classes.title}`}>Itinerary</h2>
                     <DayList dayList={dayList} setDayList={setDayList} tripId={tripId} trip={trip}/>
