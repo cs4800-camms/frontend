@@ -1,12 +1,6 @@
 .button {
     background-color: #9f7e69;
     border: none;
-    cursor: cell;
-    
-}
-
-#plantrip{
-    cursor: cell !important;
 }
 
 .button:hover {
