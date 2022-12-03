@@ -43,7 +43,7 @@ export default function Login() {
                         <h5 className={`card-title mb-3 ${classes.title}`}>We are TrippyTravel</h5>
                         <br></br><br></br>
                         <Form className={classes.form} onSubmit={handleSubmit}>
-                            <p>Please login to your account</p>
+                            <p>Please sign in to your account</p>
                             <div className={`form-floating mb-4 ${classes.control}`}>
                                 <input type="text" id="floatingInput" class="form-control" placeholder="jane_doe" onChange={(e) => setLoginInfo({ ...loginInfo, username: e.target.value })} value={loginInfo.username} required />
                                 <label class="form-label" for="floatingInput">Username</label>
@@ -56,7 +56,7 @@ export default function Login() {
                                 <label class="form-label" for="floatingInput">Password</label>
                             </div>
                             <div class="col-auto">
-                                <button class="btn btn-primary btn-lg">Login</button>
+                                <button class="btn btn-primary btn-lg">Sign In</button>
                             </div>
                             <br></br>
                             {errorMessage ? (

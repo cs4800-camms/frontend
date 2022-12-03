@@ -4,23 +4,18 @@ import Logo from "./NavLogo.png"
 import { useNavigate } from 'react-router-dom';
 import AuthService from '../../services/auth.service';
 
-export default function NavBar() {
+export default function NavBarLanding() {
     const navigate = useNavigate();
 
-    const logout = () => {
-        AuthService.logout();
-        navigate("/all-trips");
-    }
-
     const navigateToHome = () => {
-        navigate("/all-trips");
+        navigate("/");
     }
 
     return (
         <nav className={`navbar navbar-expand-lg bg-light ${classes.nav}`}>
             <div class="container">
-                <img style={{ width: "200px" }} className={`navbar-brand ${classes.logo}`} onClick={navigateToHome} src={Logo} alt="..." />
-                <button class={`btn btn-primary btn-m ${classes.btn}`} onClick={logout} type="Log out"><i class="bi bi-box-arrow-right"></i> Log out</button>
+                <img  style={{width: "200px"}} className={`navbar-brand ${classes.logo}`} onClick={navigateToHome} src={Logo} alt="..."/>
+                <a class={`btn btn-primary btn-m ${classes.btn}`} href="https://github.com/cs4800-camms/" target="_blank" type="Learn more"><i class="bi bi-info-circle"></i> Learn More</a>
             </div>
         </nav>
     );

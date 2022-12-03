@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import classes from "./SearchBar.module.css";
 import axios from "axios";
 import GlobalContext from '../../context/global';
+import { Form } from "react-bootstrap";
 
 export default function SearchBar() {
     const { setBusinesses } = useContext(GlobalContext);
@@ -29,6 +30,7 @@ export default function SearchBar() {
     return (
         <body className={classes.body}>
             <br></br>
+            <Form onSubmit={handleSubmit}>
             <div class="row">
                 <div class="col">
                     <input type="text" id="floatingInput" class="form-control" placeholder="Search categories" onChange={(e) => setSearchInfo({ ...searchInfo, term: e.target.value })} value={searchInfo.term} required></input>
@@ -39,8 +41,9 @@ export default function SearchBar() {
             </div>
             <br></br>
             <div>
-                <button type="button" className="btn btn-primary btn-m" onClick={handleSubmit}><i class="bi bi-search"></i> Find activities</button>
+                <button className="btn btn-primary btn-m"><i class="bi bi-search"></i> Find activities</button>
             </div>
+            </Form>
             {errorMessage ? (
                 <div>
                     <br/>
