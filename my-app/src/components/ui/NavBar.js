@@ -9,7 +9,7 @@ export default function NavBar() {
 
     const logout = () => {
         AuthService.logout();
-        navigate("/all-trips");
+        navigate("/");
     }
 
     const navigateToHome = () => {
