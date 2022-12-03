@@ -15,7 +15,8 @@ export default function NavBarLanding() {
         <nav className={`navbar navbar-expand-lg bg-light ${classes.nav}`}>
             <div class="container">
                 <img  style={{width: "200px"}} className={`navbar-brand ${classes.logo}`} onClick={navigateToHome} src={Logo} alt="..."/>
-                <a class={`btn btn-primary btn-m ${classes.btn}`} href="https://github.com/cs4800-camms/" target="_blank" type="Learn more"><i class="bi bi-info-circle"></i> Learn More</a>
+                <a class={`btn btn-primary btn-m ${classes.btn}`}
+                    href="https://docs.google.com/presentation/d/1YVrDXM3kp0hXVXqc3lHiWB9QspIHFQrm96jmxeIgpfE/edit?usp=sharing" target="_blank" type="Learn more"><i class="bi bi-info-circle"></i> Learn More</a>
             </div>
         </nav>
     );
