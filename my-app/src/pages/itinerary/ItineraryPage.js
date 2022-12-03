@@ -4,14 +4,11 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import axios from 'axios';
 import GlobalContext from '../../context/global';
-import yelp from '../../util/Yelp';
 import YelpList from '../../components/yelp/list/YelpList';
 import SearchBar from '../../components/search/SearchBar';
 import Navbar from '../../components/ui/NavBar';
-
-
 import authHeader from '../../services/auth-header';
-
+import classes from "./ItineraryPage.module.css"
 
 export default function ItineraryPage() {
    
@@ -19,23 +16,6 @@ export default function ItineraryPage() {
     const [isLoading, setIsLoading] = useState(false);
     const { tripId } = useParams();
     const { dayList, setDayList } = useContext(GlobalContext);
-    const [businesses, setBusinesses] = useState([]);
-
-    
-
-    const searchYelp = async (term, location) =>{
-        yelp.searchYelp(term, location).then((businesses) => {
-            setBusinesses(businesses);
-        }
-        )
-        console.log("term: " + term);
-        console.log("location" + location);
-       //const data = await searchYelp(term, location)
-       //console.log("Data: " + data);
-       //setBusinesses(data);
-    }
-
-  
 
     //gets trip info
     useEffect(() => {
@@ -80,18 +60,18 @@ export default function ItineraryPage() {
         <body>
             <Navbar></Navbar>
             <br></br>
+            <br></br>
             <h1>Plan Your {trip.name}</h1>
             <h4>{trip.destination}</h4>
-            <br></br><br></br>
-            <div class="row">
-                <div className="col">
-                    <h2>Itinerary</h2>
+            <div className="row" style={{width: "98%"}}>
+                <div className="col-xs-12 col-lg-6" style={{padding: "0"}}>
+                    <h2 className={`${classes.title}`}>Itinerary</h2>
                     <DayList dayList={dayList} setDayList={setDayList} tripId={tripId} trip={trip}/>
                 </div>
-                <div className="col justify-content-center">
-                    <h2>Activity Suggestions</h2>
-                    <SearchBar searchYelp={searchYelp}></SearchBar>
-                    <YelpList businesses={businesses}></YelpList>
+                <div className="col-xs-12 col-lg-6" style={{padding: "0"}}>
+                    <h2 className={`${classes.title}`}>Activity Suggestions</h2>
+                    <SearchBar ></SearchBar>
+                    <YelpList ></YelpList>
                 </div>
             </div>
         </body>

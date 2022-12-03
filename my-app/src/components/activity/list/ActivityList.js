@@ -48,14 +48,18 @@ export default function ActivityList({ activityList, setActivityList, dayId, tri
 
     return (
         <div>
-            <ul class="list-group mb-0">
-                {activityList.map((activity, index) => (
-                    <div>
-                        <ActivityItem key={activity._id} activity={activity} remove={handleRemove} />
-                    </div>
-                ))}
-            </ul>
-            <Form onSubmit={handleActivityAdd}>
+            {activityList.length === 0 ?
+                <h6 style={{ color: "#462b17", marginTop: "10px"}}>Add an activity to your day!</h6> :
+                <ul class="list-group mb-0">
+                    {activityList.map((activity, index) => (
+                        <div>
+                            <ActivityItem key={activity._id} activity={activity} remove={handleRemove} setActivityList={setActivityList} />
+                        </div>
+                    ))}
+                </ul>
+            }
+            <hr/>
+            <Form onSubmit={handleActivityAdd} class={`${classes.form}`}>
                 <input type="text" class="form-control" id="floatingInput" placeholder="Activity name" onChange={(e) => setActivityInfo({ ...activityInfo, name: e.target.value })} value={activityInfo.name} required />
                 <button className={`btn btn-primary ${classes.button}`}><i class="bi bi-plus"></i> Add Activity</button>
             </Form>

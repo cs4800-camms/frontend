@@ -41,18 +41,21 @@ export default function DayList({ dayList, setDayList, tripId, trip }) {
     //checks whether to render the button or not
     let button;
     if (dayList.length !== totalDays) {
-        button = <button onClick={handleDayAdd} type="button" className="btn btn-primary btn-m"> <i class="bi bi-plus-lg"></i> Add a day</button>;
+        button = <button onClick={handleDayAdd} type="button" className="btn btn-primary btn-m"><i class="bi bi-plus-lg"></i> Add a day</button>;
     } else {
         button = <button hidden onClick={handleDayAdd} type="button" className="btn btn-primary btn-m"><i class="bi bi-plus-lg"></i> Add a day</button>;
     }
 
     return (
         <div>
-            <div className={`accordion ${classes.dayHeader}`} id="accordionPanelsStayOpenExample">
-                {dayList.map((day, index) => (
-                    <DayItem day={day} tripId={tripId} />
-                ))}
-            </div>
+            {dayList.length === 0 ?
+                <h5 style={{ color: "#462b17", marginTop: "40px"}}>Add a day to your trip!</h5> :
+                <div className={`accordion ${classes.dayHeader}`} id="accordionPanelsStayOpenExample">
+                    {dayList.map((day, index) => (
+                        <DayItem day={day} tripId={tripId} />
+                    ))}
+                </div>
+            }
             <br></br>
             {button}
         </div>
