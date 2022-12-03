@@ -20,11 +20,7 @@ export default function NavBar() {
         <nav className={`navbar navbar-expand-lg bg-light ${classes.nav}`}>
             <div class="container">
                 <img  style={{width: "200px"}} className={`navbar-brand ${classes.logo}`} onClick={navigateToHome} src={Logo} alt="..."/>
-                {user ?
-                    <button class="btn btn-primary btn-m" onClick={logout} type="Log out"><i class="bi bi-box-arrow-right"></i> Log out</button>
-                    :
-                    <a class={`btn btn-primary btn-m ${classes.btn}`} href="https://github.com/cs4800-camms/" target="_blank" type="Learn more"><i class="bi bi-info-circle"></i> Learn More</a>
-                }
+                <button class="btn btn-primary btn-m" onClick={logout} type="Log out"><i class="bi bi-box-arrow-right"></i> Log out</button>
             </div>
         </nav>
     );

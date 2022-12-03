@@ -16,3 +16,8 @@
 .icon {
     font-size: 20px;
 }
+
+.checkbox:checked {
+    background-color: #e2a489;
+    border-color: #9f7e69;
+}

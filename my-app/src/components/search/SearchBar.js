@@ -39,7 +39,7 @@ export default function SearchBar() {
             </div>
             <br></br>
             <div>
-                <button type="button" className="btn btn-primary btn-m" onClick={handleSubmit}>Find activities</button>
+                <button type="button" className="btn btn-primary btn-m" onClick={handleSubmit}><i class="bi bi-search"></i> Find activities</button>
             </div>
             {errorMessage ? (
                 <div>
