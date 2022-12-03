@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-.remove{
-    cursor:pointer;
-=======
 .activity {
     justify-content: space-between;
     border-top: 0;
@@ -24,5 +20,4 @@
 .checkbox:checked {
     background-color: #e2a489;
     border-color: #9f7e69;
->>>>>>> 8d33da568bceb83a52ebaeb61cfaf5fc3d86d2f5
 }
