@@ -53,8 +53,8 @@ export default function ActivityItem({ activity, remove, setActivityList}) {
                             <i class="fas fa-times text-primary"></i>
                         </a>
                         <div class={`form-check active ${classes.todo}`}>
-                            <input class="form-check-input" name="checked" type="checkbox" checked={completed} onChange={handleChange} />
-                            <label class="form-check-label" for="flexCheckDefault">
+                            <input class={`form-check-input ${classes.checkbox}`} name="checked" type="checkbox" checked={completed} onChange={handleChange} />
+                            <label class={`form-check-label ${classes.label}`} for="flexCheckDefault">
                                 <p class={`${classes.name}`}>{activity.name}</p>
                             </label>
                         </div>

@@ -14,11 +14,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold !important;
 
 }
+
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
 }
-
 
 button {
   background-color: #9f7e69 !important;
@@ -27,4 +27,13 @@ button {
 
 button:hover {
   background-color: #ac8f7d !important;
+}
+
+input:focus {
+    box-shadow: 0 0 0 4px rgba(226, 164, 137,.25) !important;
+    border-color: #9f7e69 !important;
+}
+
+::selection {
+  background: #e2a489 !important;
 }

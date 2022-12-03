@@ -21,7 +21,6 @@ export default function NavBar() {
             <div class="container">
                 <img style={{ width: "200px" }} className={`navbar-brand ${classes.logo}`} onClick={navigateToHome} src={Logo} alt="..." />
                 <button class={`btn btn-primary btn-m ${classes.btn}`} onClick={logout} type="Log out"><i class="bi bi-box-arrow-right"></i> Log out</button>
-
             </div>
         </nav>
     );
