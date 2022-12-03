@@ -42,8 +42,7 @@ export default function Signup() {
             <div class="container mt-4 mb-4 d-flex justify-content-center">
                 <div className={`card px-4 py-4 ${classes.card}`}  >
                     <div class="card-body">
-                        <h5 className={`card-title mb-3 ${classes.title}`}>We are TrippyTravel</h5>
-                        <br></br>
+                        <h5 className={`card-title mb-3 ${classes.title}`}>Time to start planning!</h5>
                         <Form className={classes.form} onSubmit={handleSubmit}>
                             <p>Please create your account</p>
                             <br></br>
@@ -78,7 +77,7 @@ export default function Signup() {
                             <br></br>
 
                             <div class="col-auto">
-                                <button class="btn btn-primary btn-lg">Signup</button>
+                                <button class="btn btn-primary btn-lg">Join</button>
                             </div>
                             <br></br>
                             {errorMessage ? (
@@ -88,6 +87,7 @@ export default function Signup() {
                                     </div>
                                 </div>
                             ) : <div></div>}
+                            <p> Already have an account? <a class href="/login">Login here </a></p>
                         </Form>
                     </div>
                 </div>
