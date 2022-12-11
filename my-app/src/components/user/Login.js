@@ -41,9 +41,9 @@ export default function Login() {
                 <div className={`card px-5 py-5 ${classes.card}`} >
                     <div class="card-body">
                         <h5 className={`card-title mb-3 ${classes.title}`}>We are TrippyTravel</h5>
-                        <br></br><br></br>
                         <Form className={classes.form} onSubmit={handleSubmit}>
                             <p>Please sign in to your account</p>
+                            <br></br>
                             <div className={`form-floating mb-4 ${classes.control}`}>
                                 <input type="text" id="floatingInput" class="form-control" placeholder="jane_doe" onChange={(e) => setLoginInfo({ ...loginInfo, username: e.target.value })} value={loginInfo.username} required />
                                 <label class="form-label" for="floatingInput">Username</label>
